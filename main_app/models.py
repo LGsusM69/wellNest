@@ -14,4 +14,8 @@ class Journal(models.Model):
     freeWritte = models.TextField(max_length=1000)
 
 class DailyCheckIn(models.Model):
-    
+    mood = models.CharField()
+    sleep = models.CharField()
+    diet = models.CharField()
+    exercise = models.CharField()
+    dailyPractices = models.CharField()
