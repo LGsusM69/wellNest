@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import JournalEntryForm
+from datetime import date
 
 # Create your views here.
 
@@ -22,3 +24,69 @@ def dailysummaries(request):
     return render(request, 'features/dailysummaries.html')
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def journal_date(request):
+    current_date = date.today()
+    return render(request, 'journal.html', {'current_date': current_date})
+
+def new_journal(request):
+    if request.method == 'POST':
+        form = JournalEntryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('journal_list')
+        else:
+            form = JournalEntryForm()
+        return render(request, 'journal.html', {'from': form,})
+        
