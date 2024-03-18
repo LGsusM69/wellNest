@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 class Journal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     dailyPrompt = models.TextField(max_length=250)
-    freeWritte = models.TextField(max_length=1000)
+    freeWrite = models.TextField(max_length=1000)
 
 class DailyCheckIn(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
