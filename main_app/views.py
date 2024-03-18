@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Journal, DailyCheckIn, Plans
+
 # Create your views here.
 
 

@@ -5,20 +5,27 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-
-class User(models.Model):
-    userName = models.CharField(max_length=100)
-    passWord = models.CharField()
-    email = models.CharField()
-
     
 class Journal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     dailyPrompt = models.TextField(max_length=250)
     freeWritte = models.TextField(max_length=1000)
 
 class DailyCheckIn(models.Model):
-    mood = models.CharField()
-    sleep = models.CharField()
-    diet = models.CharField()
-    exercise = models.CharField()
-    dailyPractices = models.CharField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    mood = models.CharField(max_length=100)
+    sleep = models.CharField(max_length=100)
+    diet = models.CharField(max_length=100)
+    exercise = models.CharField(max_length=100)
+    dailyPractices = models.CharField(max_length=100)
+    date = models.DateField()
+
+class Plans(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    plans = models.CharField(max_length=100)
+
+##class DailySummaries():
+    ##user = models.ForeignKey(User, on_delete=models.CASCADE)
+    ##date = models.DateField()
+    #date = check-in ref
+    #journalEntry = journal reference
