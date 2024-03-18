@@ -1,84 +1,34 @@
 from django.shortcuts import render, redirect
-from .forms import JournalEntryForm
+from .forms import JournalEntryForm, MoodCheckForm
 from datetime import date
 
 # Create your views here.
 
 
 def home(request):
+    if request.method == 'POST':
+        mood_form = MoodCheckForm(request.POST)
     return render(request, 'home.html')
 
 def dashboard(request):
     return render(request, 'features/dashboard.html')
 
 def checkins(request):
-    return render(request, 'features/checkins.html')
+
+    return render(request, 'features/checkins.html', {
+        'mood_form': MoodCheckForm()
+    })
 
 def journal(request):
-    return render(request, 'features/journal.html')
+    current_date = date.today()
+    print('Today is', current_date)
+    return render(request, 'features/journal.html', {'current_date': current_date})
 
 def plans(request):
     return render(request, 'features/plans.html')
 
 def dailysummaries(request):
     return render(request, 'features/dailysummaries.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def journal_date(request):
-    current_date = date.today()
-    return render(request, 'journal.html', {'current_date': current_date})
 
 def new_journal(request):
     if request.method == 'POST':

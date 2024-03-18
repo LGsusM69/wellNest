@@ -3,6 +3,29 @@
 <h1>Check In</h1>
 <div class="all-checkins">
   <div class="mood-check">Mood Check In</div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>Select your mood:</p>
+    <input type="radio" id="happy" name="mood" value="Happy" />
+    <label for="happy">Happy</label><br />
+    <input type="radio" id="sad" name="mood" value="Sad" />
+    <label for="sad">Sad</label><br />
+    <input type="radio" id="angry" name="mood" value="Angry" />
+    <label for="angry">Angry</label><br />
+    <input type="radio" id="anxious" name="mood" value="Anxious" />
+    <label for="anxious">Anxious</label><br />
+    <input type="radio" id="excited" name="mood" value="Excited" />
+    <label for="excited">Excited</label><br />
+    <input type="radio" id="stressed" name="mood" value="stressed" />
+    <label for="stressed">Stressed</label><br />
+    <input type="radio" id="content" name="mood" value="Content" />
+    <label for="content">Content</label><br />
+    <input type="radio" id="frustrated" name="mood" value="Frustrated" />
+    <label for="frustrated">Frustrated</label><br />
+    <input type="radio" id="relaxed" name="mood" value="Relaxed" />
+    <label for="relaxed">Relaxed</label><br />
+    <button type="submit">Submit Mood</button>
+  </form>
   <div class="sleep-check">Sleep Check In</div>
   <div class="eating-check">Eating Check In</div>
   <p>
