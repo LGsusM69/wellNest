@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WellNest</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
-<body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;WellNest</a></li>
-        </ul>
-        <ul class="right">
-          <li><a href="/about">About</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="page-footer">
-    All Rights Reserved, &copy; 2024 WellNest
-  </footer>
-</body>
-</html>
+{% extends 'base.html' %} {% block content %}
+
+<h1>Check In</h1>
+<div class="all-checkins">
+  <div class="mood-check">Mood Check In</div>
+  <div class="sleep-check">Sleep Check In</div>
+  <div class="eating-check">Eating Check In</div>
+  <div class="exersice-check">Exercise Check In</div>
+  <div class="daily-practices-check">Daily Practices Check In</div>
+  <div class="better-tomorrow">
+    <p>What can I improve on for tomorrow?</p>
+    <form action="" method="post">
+      <input type="text" name="improve-tomorrow" />
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
