@@ -1,13 +1,16 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Daily Plans</h1>
-
+<h1 class="plan-title">Daily Plans</h1>
 {% if plan %}
-<p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
+<div class="plan-made">
+  <p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
+</div>
 {% else %}
-<p>No plans yet!</p>
-<h3>Add a Plan</h3>
-<form action="" method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Add Plan</button>
-</form>
+<div class="make-plan">
+  <p>No plans yet!</p>
+  <h3>Add a Plan</h3>
+  <form action="" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Add Plan</button>
+  </form>
+</div>
 {% endif %} {% endblock %}
