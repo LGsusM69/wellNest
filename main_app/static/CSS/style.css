@@ -1,41 +1,82 @@
 body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: lightskyblue;
+  margin: 0;
 }
 
-main {
-  flex: 1 0 auto;
-  text-align: center;
-  
+.nav-wrapper ul.right {
+  display: flex;
+  justify-content: flex-end;
 }
 
-footer.page-footer {
-  width: auto;
-  padding-top: 0;
-  font-size: 15px;
-  text-align: center;
+.nav-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.footer-links li{
-  display: inline-block;
-  margin-right: 50px;
-  font-size: 20px;
+
+.nav-wrapper ul.right li {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.nav-wrapper ul.right li a {
   text-decoration: none;
 }
 
+
+main {
+  flex: 1;
+  text-align: center;
+}
+
+
+footer.page-footer {
+  font-size: 15px;
+  background-color: #b3dee2;
+  text-align: center;
+  margin-top: auto; 
+}
+.footer-links li {
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 20px;
+}
+
 .footer-links li a {
-  color: black;
+  color: #666666;
+  text-decoration: none;
 }
 
 .footer-links li a:hover {
-  color: lightblue;
+  color: #999999;
 }
 
 .left-brand-logo {
-font-size: 30px;
+  display: flex;
+  justify-content: left;
+  font-size: 50px;
+  text-align: left;
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-wrapper ul.right li a.about-link,
+.nav-wrapper ul.right li a.login-link {
+  color:#666666 ;
+  margin-right: 15px; 
+  text-decoration: none;
+}
+.nav-wrapper ul.right li a.about-link:hover,
+.nav-wrapper ul.right li a.login-link:hover {
+  color: #999999;
 
 }
- .login-link{
+  
+.login-link {
   font-size: 20px;
 }
 
@@ -56,4 +97,192 @@ font-size: 30px;
   margin-top: 10px;
   border-top: 1px solid #ccc;
   padding-top: 10px;
+}
+
+/* CHECK INS */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0px 30px 20px 30px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* MOOD CHECK IN */
+.card.mood-check {
+  background: linear-gradient(
+    45deg,
+    #ff9999,
+    #ffcc99,
+    #ffff99,
+    #ccff99,
+    #99ff99,
+    #99ffcc,
+    #99ffff,
+    #99ccff,
+    #9999ff,
+    #cc99ff,
+    #ff99ff,
+    #ff99cc
+  );
+  background-size: 100%;
+  color: red;
+}
+
+.mood-select {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* SLEEP CHECK IN */
+.card.sleep-check {
+  background: linear-gradient(135deg, #ffffff, #479fbe, #000000);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  padding: 20px;
+  margin-bottom: 20px;
+
+  font-family: Arial, sans-serif;
+}
+
+.card.sleep-check h4 {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #0060c7;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+  left: calc(50% - 10px);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+.slider-container {
+  position: relative;
+}
+
+.label-left,
+.label-right {
+  position: absolute;
+  bottom: -20px;
+  color: white;
+}
+
+.label-left {
+  left: 0;
+  color: black;
+}
+
+.label-right {
+  right: 0;
+}
+
+/* EATING CHECK IN  */
+.card.eating-check {
+  text-align: left;
+  background: linear-gradient(45deg, #ffd966, #ffb3b3);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #0060c7;
+}
+
+input[type="checkbox"] + label:hover {
+  color: #0060c7;
+}
+
+/* EXERCISE CHECKIN */
+.card.exercise-check {
+  background-color: #9eeca4ee;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.card.exercise-check h4 {
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] + label {
+  margin-left: 5px;
+}
+
+/* DAILY PRACTICES CHECKIN */
+.card.daily-practices-check {
+  background-color: #75a1ffd2;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.column {
+  flex: 0 0 calc(50% - 10px); /* Set each column to take up 50% of the row width with spacing */
+  padding: 5px; /* Adjust padding for spacing */
+  box-sizing: border-box; /* Include padding in column width calculation */
+}
+
+.card.daily-practices-check label {
+  margin-left: 5px; /* Adjust margin for spacing between checkbox and label */
+}
+
+.card.daily-practices-check input[type="checkbox"] {
+  margin-right: 5px; /* Adjust margin for spacing between checkboxes */
+}
+
+.card.daily-practices-check h4 {
+  margin-bottom: 15px;
+}
+
+.card.better-tomorrow {
+  background: linear-gradient(45deg, #fdff78, #ffd966, #cab600);
 }

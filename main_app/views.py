@@ -20,12 +20,12 @@ class JournalCreate(CreateView):
 
 
 def home(request):
-    if request.method == 'POST':
-        mood_form = MoodCheckForm(request.POST)
     return render(request, 'home.html')
 
 def checkins(request):
-    return render(request, 'features/checkins.html')
+    current_date = date.today()
+    print('Today is', current_date)
+    return render(request, 'features/checkins.html', {'current_date': current_date})
 
 def journal(request):
     current_date = date.today()
