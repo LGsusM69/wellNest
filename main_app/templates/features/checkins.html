@@ -5,8 +5,8 @@
   <div class="mood-check">Mood Check In</div>
   <form action="" method="post">
     {% csrf_token %}
-    <p>Select your mood:</p>
-    <input type="radio" id="happy" name="mood" value="Happy" />
+    <label for="mood-select">How have you been feeling today?</label>
+    <input type="checkbox" id="happy" name="mood" value="Happy" />
     <label for="happy">Happy</label><br />
     <input type="radio" id="sad" name="mood" value="Sad" />
     <label for="sad">Sad</label><br />
@@ -27,6 +27,7 @@
     <button type="submit">Submit Mood</button>
   </form>
   <div class="sleep-check">Sleep Check In</div>
+
   <div class="eating-check">Eating Check In</div>
   <p>
     Did I eat breakfast today?<br />
@@ -52,5 +53,13 @@
     </form>
   </div>
 </div>
+
+<style>
+  [type="radio"]:checked {
+    position: absolute;
+    opacity: 1;
+    pointer-events: none;
+  }
+</style>
 
 {% endblock %}
