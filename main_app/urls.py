@@ -10,6 +10,7 @@ urlpatterns = [
     path('plans/', views.plans, name='plans'),
     path('dailysummaries/', views.dailysummaries, name='dailysummaries'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('journal/create/', views.JournalCreate.as_view(), name='journal_create'),
 ]
 
 

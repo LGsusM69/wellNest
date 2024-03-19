@@ -14,17 +14,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameField(
-            model_name='journal',
-            old_name='freeWritte',
-            new_name='freeWrite',
-        ),
-        migrations.AddField(
-            model_name='dailycheckin',
-            name='date',
-            field=models.DateField(default=datetime.date.today),
-            preserve_default=False,
-        ),
         migrations.CreateModel(
             name='DailySummary',
             fields=[

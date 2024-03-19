@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from django.views.generic import createview
 from .forms import JournalEntryForm
 from datetime import date
 
@@ -10,7 +9,14 @@ from .models import Journal, DailyCheckIn, Plans, DailySummary
 
 class JournalCreate(CreateView):
     model = Journal
-    fields = '__all__'
+    fields = ["dailyPrompt", "freeWrite"]
+    success_url = '/journal'
+
+    def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  # form.instance is the cat
+    # Let the CreateView do its job as usual
+        return super().form_valid(form)
 
 
 def home(request):
