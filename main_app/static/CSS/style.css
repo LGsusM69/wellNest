@@ -7,7 +7,6 @@ body {
 main {
   flex: 1 0 auto;
   text-align: center;
-  
 }
 
 footer.page-footer {
@@ -16,7 +15,7 @@ footer.page-footer {
   font-size: 15px;
   text-align: center;
 }
-.footer-links li{
+.footer-links li {
   display: inline-block;
   margin-right: 50px;
   font-size: 20px;
@@ -32,10 +31,42 @@ footer.page-footer {
 }
 
 .left-brand-logo {
-font-size: 30px;
-
+  font-size: 30px;
 }
- .login-link{
+.login-link {
   font-size: 20px;
 }
 
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0px 30px 20px 30px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card.mood-check {
+  background: linear-gradient(
+    45deg,
+    #ff9999,
+    #ffcc99,
+    #ffff99,
+    #ccff99,
+    #99ff99,
+    #99ffcc,
+    #99ffff,
+    #99ccff,
+    #9999ff,
+    #cc99ff,
+    #ff99ff,
+    #ff99cc
+  );
+  background-size: 100%;
+  color: red;
+}
+
+.mood-select {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
