@@ -55,3 +55,98 @@ footer.page-footer {
   border-top: 1px solid #ccc;
   padding-top: 10px;
 }
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0px 30px 20px 30px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card.mood-check {
+  background: linear-gradient(
+    45deg,
+    #ff9999,
+    #ffcc99,
+    #ffff99,
+    #ccff99,
+    #99ff99,
+    #99ffcc,
+    #99ffff,
+    #99ccff,
+    #9999ff,
+    #cc99ff,
+    #ff99ff,
+    #ff99cc
+  );
+  background-size: 100%;
+  color: red;
+}
+
+.mood-select {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card.sleep-check {
+  background-color: #a0ccf1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  padding: 20px;
+  margin-bottom: 20px;
+
+  font-family: Arial, sans-serif;
+}
+
+.card.sleep-check h4 {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #0060c7;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+  left: calc(50% - 10px);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+.slider-container {
+  position: relative;
+}
+
+.label-left,
+.label-right {
+  position: absolute;
+  bottom: -20px;
+}
+
+.label-left {
+  left: 0;
+}
+
+.label-right {
+  right: 0;
+}

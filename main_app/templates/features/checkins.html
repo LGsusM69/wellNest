@@ -3,9 +3,9 @@
 <h1 class="checkin">Check In</h1>
 <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
 <div class="all-checkins">
-  <div class="card mood-check">
-    <h4>Mood Check In</h4>
-    <form action="" method="post">
+  <form action="" method="post">
+    <div class="card mood-check">
+      <h4>Mood Check In</h4>
       {% csrf_token %}
       <p>Select your mood:</p>
       <div class="mood-select">
@@ -46,29 +46,28 @@
           <label for="relaxed">Relaxed</label><br />
         </div>
       </div>
-      <button type="submit">Submit Mood</button>
-    </form>
-  </div>
+    </div>
 
-  <div class="card sleep-check">
-    <h4>Sleep Check In</h4>
-    <form action="" method="post">
-      <label for="sleep_rating">Rate your sleep quality (0-100):</label><br />
-      <input
-        type="range"
-        id="sleep_rating"
-        name="sleep_rating"
-        min="0"
-        max="100"
-        value="50"
-      /><br />
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <div class="card sleep-check">
+      <h4>Sleep Check In</h4>
+      <div class="slider-container">
+        <label for="sleep_rating">Rate your sleep quality:</label><br />
+        <input
+          type="range"
+          id="sleep_rating"
+          name="sleep_rating"
+          min="0"
+          max="100"
+          value="50"
+        /><br />
+        <span class="label-left">So bad</span>
+        <span class="label-right">So good</span>
+      </div>
+    </div>
 
-  <div class="card eating-check">
-    <h4>Eating Check In</h4>
-    <form action="" method="post">
+    <div class="card eating-check">
+      <h4>Eating Check In</h4>
+
       <p>Select all that apply:</p>
       <input
         type="checkbox"
@@ -162,14 +161,12 @@
       <label for="skip_meals"
         >Did I resist the temptation to skip meals today?</label
       >
-    </form>
-  </div>
-  <br />
-  <button type="submit">Submit</button>
+    </div>
+    <br />
 
-  <div class="card exersice-check">
-    <h4>Exercise Check In</h4>
-    <form action="" method="post">
+    <div class="card exersice-check">
+      <h4>Exercise Check In</h4>
+
       <p>Type of exercise:</p>
       <input type="text" name="exercise-type" id="exercise-type" value="" />
       <p>Duration:</p>
@@ -186,45 +183,48 @@
       <label for="mod-int">Moderate Intensity</label>
       <input type="checkbox" name="high-int" id="high-int" value="high-int" />
       <label for="high-int">High Intensity</label>
-    </form>
-  </div>
-  <div class="card daily-practices-check">
-    <h4>Daily Practices Check In</h4>
-    <input
-      type="checkbox"
-      name="mindfullness"
-      id="mindfullness"
-      value="mindfullness"
-    />
-    <label for="mindfullness">Meditation/Mindfulness</label>
-    <input
-      type="checkbox"
-      name="journaling"
-      id="journaling"
-      value="journaling"
-    />
-    <label for="journaling">Journaling</label>
-    <input type="checkbox" name="learning" id="learning" value="learning" />
-    <label for="learning">Learning</label>
-    <input type="checkbox" name="social" id="social" value="social" />
-    <label for="social">Social Connection</label>
-    <input
-      type="checkbox"
-      name="creativity"
-      id="creativity"
-      value="creativity"
-    />
-    <label for="creativity">Creative Expression</label>
-    <input type="checkbox" name="self-care" id="self-care" value="self-care" />
-    <label for="self-care">Self-Care Practices</label>
-  </div>
-  <div class="card better-tomorrow">
-    <p>What can I improve on for tomorrow?</p>
-    <form action="" method="post">
-      <input type="text" name="improve-tomorrow" />
-      <button type="submit">Add</button>
-    </form>
-  </div>
+    </div>
+    <div class="card daily-practices-check">
+      <h4>Daily Practices Check In</h4>
+      <input
+        type="checkbox"
+        name="mindfullness"
+        id="mindfullness"
+        value="mindfullness"
+      />
+      <label for="mindfullness">Meditation/Mindfulness</label>
+      <input
+        type="checkbox"
+        name="journaling"
+        id="journaling"
+        value="journaling"
+      />
+      <label for="journaling">Journaling</label>
+      <input type="checkbox" name="learning" id="learning" value="learning" />
+      <label for="learning">Learning</label>
+      <input type="checkbox" name="social" id="social" value="social" />
+      <label for="social">Social Connection</label>
+      <input
+        type="checkbox"
+        name="creativity"
+        id="creativity"
+        value="creativity"
+      />
+      <label for="creativity">Creative Expression</label>
+      <input
+        type="checkbox"
+        name="self-care"
+        id="self-care"
+        value="self-care"
+      />
+      <label for="self-care">Self-Care Practices</label>
+    </div>
+    <div class="card better-tomorrow">
+      <p>What can I improve on for tomorrow?</p>
 
-  {% endblock %}
+      <input type="text" name="improve-tomorrow" />
+    </div>
+    <button type="submit">Submit Check-In</button>
+  </form>
 </div>
+{% endblock %}
