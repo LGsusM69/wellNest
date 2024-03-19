@@ -2,24 +2,19 @@ from django.shortcuts import render, redirect
 from .forms import JournalEntryForm
 from datetime import date
 
-from .models import Journal, DailyCheckIn, Plans
+from .models import Journal, DailyCheckIn, Plans, DailySummary
 
 # Create your views here.
 
 
 def home(request):
-    if request.method == 'POST':
-        mood_form = MoodCheckForm(request.POST)
     return render(request, 'home.html')
 
 def dashboard(request):
     return render(request, 'features/dashboard.html')
 
 def checkins(request):
-
-    return render(request, 'features/checkins.html', {
-        'mood_form': MoodCheckForm()
-    })
+    return render(request, 'features/checkins.html')
 
 def journal(request):
     current_date = date.today()
@@ -30,7 +25,20 @@ def plans(request):
     return render(request, 'features/plans.html')
 
 def dailysummaries(request):
-    return render(request, 'features/dailysummaries.html')
+    daily_summaries = DailySummary.objects.all()
+    daily_summaries_by_date = {}
+    for daily_summary in daily_summaries:
+        date_key = daily_summary.date.strftime('%B %d, %Y')
+        if date_key in daily_summaries_by_date:
+            daily_summaries_by_date[date_key].append(daily_summary)
+        else:
+            daily_summaries_by_date[date_key] = [daily_summary]
+
+    context = {
+        'daily_summaries_by_date': daily_summaries_by_date,
+    }
+    return render(request, 'features/dailysummaries.html', context)
+
 
 def new_journal(request):
     if request.method == 'POST':
