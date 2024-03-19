@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView
+from django.views.generic import createview
 from .forms import JournalEntryForm
 from datetime import date
 
@@ -6,20 +8,17 @@ from .models import Journal, DailyCheckIn, Plans
 
 # Create your views here.
 
+class JournalCreate(CreateView):
+    model = Journal
+    fields = '__all__'
+
 
 def home(request):
-    if request.method == 'POST':
-        mood_form = MoodCheckForm(request.POST)
     return render(request, 'home.html')
-
-def dashboard(request):
-    return render(request, 'features/dashboard.html')
 
 def checkins(request):
 
-    return render(request, 'features/checkins.html', {
-        'mood_form': MoodCheckForm()
-    })
+    return render(request, 'features/checkins.html')
 
 def journal(request):
     current_date = date.today()
@@ -35,10 +34,14 @@ def dailysummaries(request):
 def new_journal(request):
     if request.method == 'POST':
         form = JournalEntryForm(request.POST)
+        print("squidward")
+        print(form)
         if form.is_valid():
+            print("it is valid")
             form.save()
             return redirect('journal_list')
         else:
+            print("not valid")
             form = JournalEntryForm()
-        return render(request, 'journal.html', {'from': form,})
+        return render(request, 'features/journal.html', {'from': form,})
         
