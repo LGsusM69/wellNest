@@ -55,6 +55,8 @@ footer.page-footer {
   border-top: 1px solid #ccc;
   padding-top: 10px;
 }
+
+/* CHECK INS */
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -63,6 +65,7 @@ footer.page-footer {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* MOOD CHECK IN */
 .card.mood-check {
   background: linear-gradient(
     45deg,
@@ -89,8 +92,9 @@ footer.page-footer {
   gap: 10px;
 }
 
+/* SLEEP CHECK IN */
 .card.sleep-check {
-  background-color: #a0ccf1;
+  background: linear-gradient(135deg, #ffffff, #479fbe, #000000);
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -141,12 +145,60 @@ input[type="range"]::-webkit-slider-runnable-track {
 .label-right {
   position: absolute;
   bottom: -20px;
+  color: white;
 }
 
 .label-left {
   left: 0;
+  color: black;
 }
 
 .label-right {
   right: 0;
+}
+
+/* EATING CHECK IN  */
+.card.eating-check {
+  text-align: left;
+  background: linear-gradient(45deg, #ffd966, #ffb3b3);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #42b425;
+}
+
+/* EXERCISE CHECKIN */
+.card.exercise-check {
+  background-color: #9eeca4ee;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.card.exercise-check h4 {
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] + label {
+  margin-left: 5px;
 }
