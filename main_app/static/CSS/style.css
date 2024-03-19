@@ -23,7 +23,7 @@ footer.page-footer {
 }
 
 .footer-links li a {
-  color: white;
+  color: black;
 }
 
 .footer-links li a:hover {
@@ -37,6 +37,7 @@ footer.page-footer {
   font-size: 20px;
 }
 
+<<<<<<< HEAD
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -70,3 +71,23 @@ footer.page-footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+=======
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.date-box {
+  margin-bottom: 20px;
+}
+.summary-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.journal-entry {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+>>>>>>> main

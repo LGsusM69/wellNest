@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<div class="container">
+    <h1>My Daily Summaries</h1>
+    {% for date, daily_summaries in daily_summaries_by_date.items %}
+    <div class="date-box">
+      <h2>{{ date }}</h2>
+      {% for daily_summary in daily_summaries %}
+      <div class="summary-box">
+        <h3>Date: {{ daily_summary.date }}</h3>
+        <p>Mood Check: {{ daily_summary.mood_check }}</p>
+        <p>Sleep Check: {{ daily_summary.sleep_check }}</p>
+        <p>Eating Check: {{ daily_summary.eating_check }}</p>
+        <p>Exercise Check: {{ daily_summary.exercise_check }}</p>
+        <!-- Journal Entry is included within each indivudual Summary Box -->
+        <div class="journal-entry">
+          <h4>Journal Entry</h4>
+          <p>{{ daily_summary.journal_entry }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+   
 {% endblock %}
+
