@@ -4,11 +4,19 @@
   <div class="journal-title">
     <h1>Journal</h1>
   </div>
+  <div class="today-date">
+    <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
+  </div>
   <div class="journal-question">
     Daily Question (to be got from API eventually??)
   </div>
   <div class="journal-entry">
-    <p class="`journal-text">Write about your day...</p>
+    <p class="journal-text">Write about your day...</p>
+    <form action="" method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="text" />
+      <button type="submit">Add Entry</button>
+    </form>
   </div>
 </div>
 
