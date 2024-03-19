@@ -1,41 +1,82 @@
 body {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: lightskyblue;
+  margin: 0;
 }
 
-main {
-  flex: 1 0 auto;
-  text-align: center;
-  
+.nav-wrapper ul.right {
+  display: flex;
+  justify-content: flex-end;
 }
 
-footer.page-footer {
-  width: auto;
-  padding-top: 0;
-  font-size: 15px;
-  text-align: center;
+.nav-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.footer-links li{
-  display: inline-block;
-  margin-right: 50px;
-  font-size: 20px;
+
+.nav-wrapper ul.right li {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.nav-wrapper ul.right li a {
   text-decoration: none;
 }
 
+
+main {
+  flex: 1;
+  text-align: center;
+}
+
+
+footer.page-footer {
+  font-size: 15px;
+  background-color: #b3dee2;
+  text-align: center;
+  margin-top: auto; 
+}
+.footer-links li {
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 20px;
+}
+
 .footer-links li a {
-  color: black;
+  color: #666666;
+  text-decoration: none;
 }
 
 .footer-links li a:hover {
-  color: lightblue;
+  color: #999999;
 }
 
 .left-brand-logo {
-font-size: 30px;
+  display: flex;
+  justify-content: left;
+  font-size: 50px;
+  text-align: left;
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav-wrapper ul.right li a.about-link,
+.nav-wrapper ul.right li a.login-link {
+  color:#666666 ;
+  margin-right: 15px; 
+  text-decoration: none;
+}
+.nav-wrapper ul.right li a.about-link:hover,
+.nav-wrapper ul.right li a.login-link:hover {
+  color: #999999;
 
 }
- .login-link{
+  
+.login-link {
   font-size: 20px;
 }
 

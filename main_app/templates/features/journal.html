@@ -12,9 +12,8 @@
   </div>
   <div class="journal-entry">
     <p class="journal-text">Write about your day...</p>
-    <form action="" method="post">
+    <form action="{% url 'journal_create' %}" method="post">
       {% csrf_token %} {{ form.as_p }}
-      <input type="text" />
       <button type="submit">Add Entry</button>
     </form>
   </div>
