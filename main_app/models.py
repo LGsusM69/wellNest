@@ -9,6 +9,7 @@ import datetime
 class Journal(models.Model):
     dailyPrompt = models.TextField(max_length=250)
     freeWrite = models.TextField(max_length=1000)
+    date = models.DateField(default=datetime.date.today)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -25,9 +26,11 @@ class DailyCheckIn(models.Model):
     dailyPractices = models.CharField(max_length=100)
     date = models.DateField()
 
-class Plans(models.Model):
+class Plan(models.Model):
+    plan = models.CharField(max_length=100)
+    date = models.DateField(default=datetime.date.today)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    plans = models.CharField(max_length=100)
 
 class DailySummary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
