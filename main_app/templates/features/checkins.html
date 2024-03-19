@@ -1,31 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WellNest</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
-<body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;WellNest</a></li>
-        </ul>
-        <ul class="right">
-          <li><a href="/about">About</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="page-footer">
-    All Rights Reserved, &copy; 2024 WellNest
-  </footer>
-</body>
-</html>
+{% extends 'base.html' %} {% block content %}
+
+<h1>Check In</h1>
+<div class="all-checkins">
+  <div class="mood-check">Mood Check In</div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>Select your mood:</p>
+    <input type="radio" id="happy" name="mood" value="Happy" />
+    <label for="happy">Happy</label><br />
+    <input type="radio" id="sad" name="mood" value="Sad" />
+    <label for="sad">Sad</label><br />
+    <input type="radio" id="angry" name="mood" value="Angry" />
+    <label for="angry">Angry</label><br />
+    <input type="radio" id="anxious" name="mood" value="Anxious" />
+    <label for="anxious">Anxious</label><br />
+    <input type="radio" id="excited" name="mood" value="Excited" />
+    <label for="excited">Excited</label><br />
+    <input type="radio" id="stressed" name="mood" value="stressed" />
+    <label for="stressed">Stressed</label><br />
+    <input type="radio" id="content" name="mood" value="Content" />
+    <label for="content">Content</label><br />
+    <input type="radio" id="frustrated" name="mood" value="Frustrated" />
+    <label for="frustrated">Frustrated</label><br />
+    <input type="radio" id="relaxed" name="mood" value="Relaxed" />
+    <label for="relaxed">Relaxed</label><br />
+    <button type="submit">Submit Mood</button>
+  </form>
+  <div class="sleep-check">Sleep Check In</div>
+  <div class="eating-check">Eating Check In</div>
+  <p>
+    Did I eat breakfast today?<br />
+    Did I include fruits and/or vegetables in at least one meal today?<br />
+    Did I drink enough water today?<br />
+    Did I consume sugary drinks or snacks excessively today?<br />
+    Did I eat a balanced meal with protein, carbohydrates, and healthy fats?<br />
+    Did I snack mindfully, paying attention to hunger cues, rather than out of
+    boredom or stress?<br />
+    Did I eat out of home-cooked meals more than eating fast food or processed
+    foods?<br />
+    Did I avoid late-night snacking?<br />
+    Did I practice portion control during meals?<br />
+    Did I resist the temptation to skip meals today?
+  </p>
+  <div class="exersice-check">Exercise Check In</div>
+  <div class="daily-practices-check">Daily Practices Check In</div>
+  <div class="better-tomorrow">
+    <p>What can I improve on for tomorrow?</p>
+    <form action="" method="post">
+      <input type="text" name="improve-tomorrow" />
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

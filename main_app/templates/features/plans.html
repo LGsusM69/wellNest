@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WellNest</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
-<body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;WellNest</a></li>
-        </ul>
-        <ul class="right">
-          <li><a href="/about">About</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="page-footer">
-    All Rights Reserved, &copy; 2024 WellNest
-  </footer>
-</body>
-</html>
+{% extends 'base.html' %} {% block content %}
+<h1 class="plan-title">Daily Plans</h1>
+{% if plan %}
+<div class="plan-made">
+  <p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
+</div>
+{% else %}
+<div class="make-plan">
+  <p>No plans yet!</p>
+  <h3>Add a Plan</h3>
+  <form action="" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Add Plan</button>
+  </form>
+</div>
+{% endif %} {% endblock %}

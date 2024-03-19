@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>WellNest</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   </head>
   <body>
@@ -18,11 +14,17 @@
         <div class="nav-wrapper">
           <ul>
             <li>
-              <a href="/" class="left-brand-logo">&nbsp;&nbsp;WellNest</a>
+              <a href="/" class="left brand-logo">&nbsp;&nbsp;WellNest</a>
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/login" class="login-link">Login</a></li>
+            <li><a href="/about">About</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <!-- FIGURE OUT HOW TO MAKE BOTTOM NAV THE IF -->
+            {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -32,10 +34,10 @@
       <div class="footer-links">
         <ul>
           <li><a href="/dash">Dash</a></li>
-          <li><a href="/check-ins">Check-ins</a></li>
+          <li><a href="/checkins">Check-ins</a></li>
           <li><a href="/journal">Journal</a></li>
           <li><a href="/plans">Plans</a></li>
-          <li><a href="/daily-summaries">Daily Summaries</a></li>
+          <li><a href="/dailysummaries">Daily Summaries</a></li>
         </ul>
       </div>
       All Rights Reserved, &copy; 2024 WellNest
