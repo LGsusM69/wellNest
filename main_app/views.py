@@ -25,7 +25,9 @@ def home(request):
     return render(request, 'home.html')
 
 def checkins(request):
-    return render(request, 'features/checkins.html')
+    current_date = date.today()
+    print('Today is', current_date)
+    return render(request, 'features/checkins.html', {'current_date': current_date})
 
 def journal(request):
     current_date = date.today()
