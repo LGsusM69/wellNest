@@ -31,8 +31,6 @@ class PlanCreate(CreateView):
 
 
 def home(request):
-    if request.method == 'POST':
-        mood_form = MoodCheckForm(request.POST)
     return render(request, 'home.html')
 
 def checkins(request):
