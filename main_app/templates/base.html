@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>WellNest</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   </head>
   <body>
     <header class="navbar-fixed">
@@ -32,8 +30,16 @@
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-
     <footer class="page-footer">
+      <div class="footer-links">
+        <ul>
+          <li><a href="/dash">Dash</a></li>
+          <li><a href="/checkins">Check-ins</a></li>
+          <li><a href="/journal">Journal</a></li>
+          <li><a href="/plans">Plans</a></li>
+          <li><a href="/dailysummaries">Daily Summaries</a></li>
+        </ul>
+      </div>
       All Rights Reserved, &copy; 2024 WellNest
     </footer>
   </body>

@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  text-align: center;
+  
+}
+
+footer.page-footer {
+  width: auto;
+  padding-top: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.footer-links li{
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.footer-links li a {
+  color: white;
+}
+
+.footer-links li a:hover {
+  color: lightblue;
+}
+
+.left-brand-logo {
+font-size: 30px;
+
+}
+ .login-link{
+  font-size: 20px;
+}
+
