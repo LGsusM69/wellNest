@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import JournalEntryForm, MoodCheckForm
+from .forms import JournalEntryForm
 from datetime import date
 
 from .models import Journal, DailyCheckIn, Plans
