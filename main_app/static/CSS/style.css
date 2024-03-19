@@ -181,7 +181,11 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-color: #42b425;
+  background-color: #0060c7;
+}
+
+input[type="checkbox"] + label:hover {
+  color: #0060c7;
 }
 
 /* EXERCISE CHECKIN */
@@ -201,4 +205,41 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"] + label {
   margin-left: 5px;
+}
+
+/* DAILY PRACTICES CHECKIN */
+.card.daily-practices-check {
+  background-color: #75a1ffd2;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.column {
+  flex: 0 0 calc(50% - 10px); /* Set each column to take up 50% of the row width with spacing */
+  padding: 5px; /* Adjust padding for spacing */
+  box-sizing: border-box; /* Include padding in column width calculation */
+}
+
+.card.daily-practices-check label {
+  margin-left: 5px; /* Adjust margin for spacing between checkbox and label */
+}
+
+.card.daily-practices-check input[type="checkbox"] {
+  margin-right: 5px; /* Adjust margin for spacing between checkboxes */
+}
+
+.card.daily-practices-check h4 {
+  margin-bottom: 15px;
+}
+
+.card.better-tomorrow {
+  background: linear-gradient(45deg, #fdff78, #ffd966, #cab600);
 }
