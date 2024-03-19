@@ -6,3 +6,4 @@ class JournalEntryForm(ModelForm):
     class Meta:
         model = Journal
         fields = ['dailyPrompt', 'freeWrite']
+        

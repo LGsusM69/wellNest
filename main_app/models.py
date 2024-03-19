@@ -1,6 +1,6 @@
 from django.db import models
-
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
+import datetime
 ## Add 'user = models.ForeignKey(User, on_delete=models.CASCADE)' to dailysummaries model ##
 
 # Create your models here.
@@ -31,8 +31,14 @@ class Plans(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     plans = models.CharField(max_length=100)
 
-##class DailySummaries():
-    ##user = models.ForeignKey(User, on_delete=models.CASCADE)
-    ##date = models.DateField()
-    #date = check-in ref
-    #journalEntry = journal reference
+class DailySummary(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField(datetime.date.today)
+    mood_check = models.CharField(max_length=100)
+    sleep_check = models.CharField(max_length=100)
+    eating_check = models.CharField(max_length=100)
+    exercise_check = models.CharField(max_length=100)
+    journal_entry = models.TextField()
+
+    def __str__(self):
+        return f'Daily Summary for {self.date}'

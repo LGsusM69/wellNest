@@ -24,7 +24,7 @@ footer.page-footer {
 }
 
 .footer-links li a {
-  color: white;
+  color: black;
 }
 
 .footer-links li a:hover {
@@ -39,3 +39,21 @@ font-size: 30px;
   font-size: 20px;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.date-box {
+  margin-bottom: 20px;
+}
+.summary-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.journal-entry {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
