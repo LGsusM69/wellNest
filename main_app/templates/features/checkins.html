@@ -1,56 +1,252 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Check In</h1>
+<h1 class="checkin">Check In</h1>
+<h5>Today is {{ current_date|date:'l, M jS' }}</h5>
 <div class="all-checkins">
-  <div class="mood-check">Mood Check In</div>
   <form action="" method="post">
-    {% csrf_token %}
-    <p>Select your mood:</p>
-    <input type="radio" id="happy" name="mood" value="Happy" />
-    <label for="happy">Happy</label><br />
-    <input type="radio" id="sad" name="mood" value="Sad" />
-    <label for="sad">Sad</label><br />
-    <input type="radio" id="angry" name="mood" value="Angry" />
-    <label for="angry">Angry</label><br />
-    <input type="radio" id="anxious" name="mood" value="Anxious" />
-    <label for="anxious">Anxious</label><br />
-    <input type="radio" id="excited" name="mood" value="Excited" />
-    <label for="excited">Excited</label><br />
-    <input type="radio" id="stressed" name="mood" value="stressed" />
-    <label for="stressed">Stressed</label><br />
-    <input type="radio" id="content" name="mood" value="Content" />
-    <label for="content">Content</label><br />
-    <input type="radio" id="frustrated" name="mood" value="Frustrated" />
-    <label for="frustrated">Frustrated</label><br />
-    <input type="radio" id="relaxed" name="mood" value="Relaxed" />
-    <label for="relaxed">Relaxed</label><br />
-    <button type="submit">Submit Mood</button>
-  </form>
-  <div class="sleep-check">Sleep Check In</div>
-  <div class="eating-check">Eating Check In</div>
-  <p>
-    Did I eat breakfast today?<br />
-    Did I include fruits and/or vegetables in at least one meal today?<br />
-    Did I drink enough water today?<br />
-    Did I consume sugary drinks or snacks excessively today?<br />
-    Did I eat a balanced meal with protein, carbohydrates, and healthy fats?<br />
-    Did I snack mindfully, paying attention to hunger cues, rather than out of
-    boredom or stress?<br />
-    Did I eat out of home-cooked meals more than eating fast food or processed
-    foods?<br />
-    Did I avoid late-night snacking?<br />
-    Did I practice portion control during meals?<br />
-    Did I resist the temptation to skip meals today?
-  </p>
-  <div class="exersice-check">Exercise Check In</div>
-  <div class="daily-practices-check">Daily Practices Check In</div>
-  <div class="better-tomorrow">
-    <p>What can I improve on for tomorrow?</p>
-    <form action="" method="post">
-      <input type="text" name="improve-tomorrow" />
-      <button type="submit">Add</button>
-    </form>
-  </div>
-</div>
+    <div class="card mood-check">
+      <h4>Mood Check In</h4>
+      {% csrf_token %}
+      <p>Select your mood:</p>
+      <div class="mood-select">
+        <div>
+          <input type="radio" id="happy" name="mood" value="Happy" />
+          <label for="happy">Happy</label><br />
+        </div>
+        <div>
+          <input type="radio" id="sad" name="mood" value="Sad" />
+          <label for="sad">Sad</label><br />
+        </div>
+        <div>
+          <input type="radio" id="angry" name="mood" value="Angry" />
+          <label for="angry">Angry</label><br />
+        </div>
+        <div>
+          <input type="radio" id="anxious" name="mood" value="Anxious" />
+          <label for="anxious">Anxious</label><br />
+        </div>
+        <div>
+          <input type="radio" id="excited" name="mood" value="Excited" />
+          <label for="excited">Excited</label><br />
+        </div>
+        <div>
+          <input type="radio" id="stressed" name="mood" value="stressed" />
+          <label for="stressed">Stressed</label><br />
+        </div>
+        <div>
+          <input type="radio" id="content" name="mood" value="Content" />
+          <label for="content">Content</label><br />
+        </div>
+        <div>
+          <input type="radio" id="frustrated" name="mood" value="Frustrated" />
+          <label for="frustrated">Frustrated</label><br />
+        </div>
+        <div>
+          <input type="radio" id="relaxed" name="mood" value="Relaxed" />
+          <label for="relaxed">Relaxed</label><br />
+        </div>
+      </div>
+    </div>
 
+    <div class="card sleep-check">
+      <h4>Sleep Check In</h4>
+      <div class="slider-container">
+        <label for="sleep_rating">Rate your sleep quality:</label><br />
+        <input
+          type="range"
+          id="sleep_rating"
+          name="sleep_rating"
+          min="0"
+          max="100"
+          value="50"
+        /><br />
+        <span class="label-left">So bad</span>
+        <span class="label-right">So good</span>
+      </div>
+    </div>
+
+    <div class="card eating-check">
+      <h4>Eating Check In</h4>
+
+      <p>Select all that apply:</p>
+      <input
+        type="checkbox"
+        id="breakfast"
+        name="breakfast"
+        value="breakfast"
+      />
+      <label for="breakfast">Did I eat breakfast today?</label><br />
+
+      <input
+        type="checkbox"
+        id="fruits_veggies"
+        name="fruits_veggies"
+        value="fruits_veggies"
+      />
+      <label for="fruits_veggies"
+        >Did I eat fruits and/or vegetables today?</label
+      ><br />
+
+      <input type="checkbox" id="water" name="water" value="water" />
+      <label for="water">Did I drink enough water today?</label><br />
+
+      <input
+        type="checkbox"
+        id="sugary_drinks"
+        name="sugary_drinks"
+        value="sugary_drinks"
+      />
+      <label for="sugary_drinks"
+        >Did I consume sugary drinks or snacks excessively today?</label
+      ><br />
+
+      <input
+        type="checkbox"
+        id="balanced_meal"
+        name="balanced_meal"
+        value="balanced_meal"
+      />
+      <label for="balanced_meal"
+        >Did I eat a balanced meal with protein, carbohydrates, and healthy
+        fats?</label
+      ><br />
+
+      <input
+        type="checkbox"
+        id="mindful_snacking"
+        name="mindful_snacking"
+        value="mindful_snacking"
+      />
+      <label for="mindful_snacking"
+        >Did I snack mindfully, paying attention to hunger cues, rather than out
+        of boredom or stress?</label
+      ><br />
+
+      <input
+        type="checkbox"
+        id="home_cooked_meals"
+        name="home_cooked_meals"
+        value="home_cooked_meals"
+      />
+      <label for="home_cooked_meals"
+        >Did I eat out of home-cooked meals more than eating fast food or
+        processed foods?</label
+      ><br />
+
+      <input
+        type="checkbox"
+        id="late_night_snacking"
+        name="late_night_snacking"
+        value="late_night_snacking"
+      />
+      <label for="late_night_snacking">Did I avoid late-night snacking?</label
+      ><br />
+
+      <input
+        type="checkbox"
+        id="portion_control"
+        name="portion_control"
+        value="portion_control"
+      />
+      <label for="portion_control"
+        >Did I practice portion control during meals?</label
+      ><br />
+
+      <input
+        type="checkbox"
+        id="skip_meals"
+        name="skip_meals"
+        value="skip_meals"
+      />
+      <label for="skip_meals"
+        >Did I resist the temptation to skip meals today?</label
+      >
+    </div>
+    <br />
+
+    <div class="card exercise-check">
+      <h4>Exercise Check In</h4>
+
+      <p>Type of exercise:</p>
+      <input type="text" name="exercise-type" id="exercise-type" value="" />
+      <p>Duration:</p>
+      <input
+        type="text"
+        name="exercise-duration"
+        id="exercise-duration"
+        value=""
+      />
+      <p>Intensity:</p>
+      <input type="checkbox" name="low-int" id="low-int" value="low-int" />
+      <label for="low-int">Low Intensity</label>
+      <input type="checkbox" name="mod-int" id="mod-int" value="mod-int" />
+      <label for="mod-int">Moderate Intensity</label>
+      <input type="checkbox" name="high-int" id="high-int" value="high-int" />
+      <label for="high-int">High Intensity</label>
+    </div>
+
+    <div class="card daily-practices-check">
+      <h4>Daily Practices Check In</h4>
+      <div class="row">
+        <div class="column">
+          <input
+            type="checkbox"
+            name="mindfulness"
+            id="mindfulness"
+            value="mindfulness"
+          />
+          <label for="mindfulness">Meditation/Mindfulness</label>
+        </div>
+        <div class="column">
+          <input
+            type="checkbox"
+            name="journaling"
+            id="journaling"
+            value="journaling"
+          />
+          <label for="journaling">Journaling</label>
+        </div>
+        <div class="column">
+          <input
+            type="checkbox"
+            name="learning"
+            id="learning"
+            value="learning"
+          />
+          <label for="learning">Learning</label>
+        </div>
+
+        <div class="column">
+          <input type="checkbox" name="social" id="social" value="social" />
+          <label for="social">Social Connection</label>
+        </div>
+        <div class="column">
+          <input
+            type="checkbox"
+            name="creativity"
+            id="creativity"
+            value="creativity"
+          />
+          <label for="creativity">Creative Expression</label>
+        </div>
+        <div class="column">
+          <input
+            type="checkbox"
+            name="self-care"
+            id="self-care"
+            value="self-care"
+          />
+          <label for="self-care">Self-Care Practices</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card better-tomorrow">
+      <p>What can I improve on for tomorrow?</p>
+
+      <input type="text" name="improve-tomorrow" />
+    </div>
+    <button type="submit">Submit Check-In</button>
+  </form>
+</div>
 {% endblock %}
