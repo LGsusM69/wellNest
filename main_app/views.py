@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView
 from .forms import JournalEntryForm
 from datetime import date
 
-from .models import Journal, DailyCheckIn, Plans, DailySummary
+from .models import Journal, DailyCheckIn, Plan, DailySummary
 
 # Create your views here.
 
@@ -16,6 +16,17 @@ class JournalCreate(CreateView):
     # Assign the logged in user (self.request.user)
         form.instance.user = self.request.user  # form.instance is the cat
     # Let the CreateView do its job as usual
+        return super().form_valid(form)
+    
+class PlanCreate(CreateView):
+    model = Plan
+    fields = ["plan"]
+    success_url = '/plans'
+
+    def form_valid(self, form):
+        # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  # form.instance is the cat
+        # Let the CreateView do its job as usual
         return super().form_valid(form)
 
 
@@ -49,19 +60,3 @@ def dailysummaries(request):
         'daily_summaries_by_date': daily_summaries_by_date,
     }
     return render(request, 'features/dailysummaries.html', context)
-
-
-def new_journal(request):
-    if request.method == 'POST':
-        form = JournalEntryForm(request.POST)
-        print("squidward")
-        print(form)
-        if form.is_valid():
-            print("it is valid")
-            form.save()
-            return redirect('journal_list')
-        else:
-            print("not valid")
-            form = JournalEntryForm()
-        return render(request, 'features/journal.html', {'from': form,})
-        
