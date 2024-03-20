@@ -2,14 +2,15 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from .forms import JournalEntryForm
 from datetime import date
+from random import randint
 
-from .models import Journal, DailyCheckIn, Plan, DailySummary
+from .models import Journal, DailyCheckIn, Plan, DailySummary, DailyPrompt
 
 # Create your views here.
 
 class JournalCreate(CreateView):
     model = Journal
-    fields = ["dailyPrompt", "freeWrite"]
+    fields = ["freeWrite"]
     success_url = '/journal'
 
     def form_valid(self, form):
@@ -17,6 +18,15 @@ class JournalCreate(CreateView):
         form.instance.user = self.request.user  # form.instance is the cat
     # Let the CreateView do its job as usual
         return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        count = DailyPrompt.objects.count()
+        #daily_prompt = DailyPrompt.objects.first()
+        daily_prompt = DailyPrompt.objects.all()[randint(0, count -1)]
+        context['daily_prompt'] = daily_prompt
+        return context
     
 class PlanCreate(CreateView):
     model = Plan
