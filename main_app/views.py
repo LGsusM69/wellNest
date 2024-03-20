@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from .forms import JournalEntryForm
+from .forms import JournalEntryForm, PhotoUploadForm
 from datetime import date
 
 from .models import Journal, DailyCheckIn, Plan, DailySummary
@@ -60,3 +60,19 @@ def dailysummaries(request):
         'daily_summaries_by_date': daily_summaries_by_date,
     }
     return render(request, 'features/dailysummaries.html', context)
+
+from django.shortcuts import render, redirect
+from .forms import PhotoUploadForm
+
+
+def upload_photo(request):
+    if request.method == 'POST':
+        form = PhotoUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            photo = form.save(commit=False)
+            photo.user = request.user  # will assign the logged-in user to the photo/
+            photo.save()
+            return redirect('journal')  # Redirect to the journal page after upload
+    else:
+        form = PhotoUploadForm()
+    return render(request, 'journal.html', {'form': form})

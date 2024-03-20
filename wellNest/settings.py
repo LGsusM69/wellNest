@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import environ, os 
+
+environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -130,3 +134,17 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CONFIGURE AWS S3 SETTINGS FOR PHOTOS
+
+AWS_ACCESS_KEY_ID = 'AKIA47CRZDCEOE7OYW2H'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'wellnest-bucket'
+AWS_S3_REGION_NAME = 'us-west-1'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# TO HANDLE UPLOADED FILES:
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
