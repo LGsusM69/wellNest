@@ -84,15 +84,47 @@ footer.page-footer {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  
 }
-.date-box {
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+.summary-date-box {
   margin-bottom: 20px;
+  background: linear-gradient(
+    45deg,
+    #ff999985,
+    #ffcc9990,
+    #ffff9979,
+    #ccff9970,
+    #99ff998a,
+    #99ffcc91,
+    #99ffff96,
+    #99ccff,
+    #9999ff83,
+    #cc99ff48,
+    #ff99ff71,
+    #ff99cc50
+  );
+  background-size: 100%;
 }
 .summary-box {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
 }
+
+div.journal-entry {
+  background: #dae6335b;
+  margin-bottom: 30px;
+}
+
 .journal-entry {
   margin-top: 10px;
   border-top: 1px solid #ccc;
@@ -274,7 +306,7 @@ input[type="checkbox"] + label {
 .card.daily-practices-check label {
   margin-left: 5px; /* Adjust margin for spacing between checkbox and label */
 }
-
+py
 .card.daily-practices-check input[type="checkbox"] {
   margin-right: 5px; /* Adjust margin for spacing between checkboxes */
 }
