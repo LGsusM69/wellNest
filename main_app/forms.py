@@ -6,7 +6,7 @@ from django import forms
 class JournalEntryForm(ModelForm):
     class Meta:
         model = Journal
-        fields = ['dailyPrompt', 'freeWrite', 'user']
+        fields = ['freeWrite', 'user']
 
 
 

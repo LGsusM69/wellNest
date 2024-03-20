@@ -7,11 +7,13 @@ import datetime
 
     
 class Journal(models.Model):
-    dailyPrompt = models.TextField(max_length=250)
     freeWrite = models.TextField(max_length=1000)
     date = models.DateField(default=datetime.date.today)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class DailyPrompt(models.Model):
+    prompt = models.CharField(max_length=100)
 
     
 class DailyCheckIn(models.Model):
