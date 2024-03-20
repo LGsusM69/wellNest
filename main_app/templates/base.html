@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>WellNest</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'CSS/style.css' %}"
+    />
   </head>
   <body>
     <header class="navbar-fixed">
@@ -18,7 +22,7 @@
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/about" class="about-link">About</a></li>
+            <li><a href="/" class="about-link">Home</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             <!-- FIGURE OUT HOW TO MAKE BOTTOM NAV THE IF -->
