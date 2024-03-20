@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from .forms import JournalEntryForm
-from datetime import date
+from datetime import date, timedelta
 
 from .models import Journal, DailyCheckIn, Plan, DailySummary
 
@@ -35,16 +35,19 @@ def home(request):
 
 def checkins(request):
     current_date = date.today()
-    print('Today is', current_date)
     return render(request, 'features/checkins.html', {'current_date': current_date})
 
 def journal(request):
     current_date = date.today()
-    print('Today is', current_date)
     return render(request, 'features/journal.html', {'current_date': current_date})
 
 def plans(request):
-    return render(request, 'features/plans.html')
+    current_date = date.today()
+    def add_days(value, days):
+        return value + timedelta(days=days)
+    return render(request, 'features/plans.html', {'current_date': current_date, 'add_days': add_days})
+
+
 
 def dailysummaries(request):
     daily_summaries = DailySummary.objects.all()

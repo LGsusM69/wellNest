@@ -2,15 +2,16 @@
 <h1 class="plan-title">Daily Plans</h1>
 {% if plan %}
 <div class="plan-made">
-  <p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
+  <p>Today is {{ current_date|date:'l, M jS' }} - {{ plan.plan }}</p>
 </div>
 {% else %}
 <div class="make-plan">
   <p>No plans yet!</p>
+  {% endif %}
   <h3>Add a Plan</h3>
   <form action="{% url 'plan_create' %}" method="post">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Add Plan</button>
+    <button class="plan-btn" type="submit">Add Plan</button>
   </form>
 </div>
-{% endif %} {% endblock %}
+{% endblock %}
