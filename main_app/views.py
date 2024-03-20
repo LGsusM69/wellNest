@@ -20,15 +20,17 @@ class JournalCreate(CreateView):
     
 class PlanCreate(CreateView):
     model = Plan
-    fields = ["plan"]
-    success_url = '/plans'
+    template_name = 'your_template.html'
+    fields = ['plan']  # Specify the fields to include in the form
 
     def form_valid(self, form):
-        # Assign the logged in user (self.request.user)
-        form.instance.user = self.request.user  # form.instance is the cat
-        # Let the CreateView do its job as usual
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['hours'] = ["06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"]
+        return context
 
 def home(request):
     return render(request, 'home.html')
