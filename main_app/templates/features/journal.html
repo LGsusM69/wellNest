@@ -16,6 +16,12 @@
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">Add Entry</button>
     </form>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Photo That Made Me Happy</button>
+    </form>
+
   </div>
 </div>
 

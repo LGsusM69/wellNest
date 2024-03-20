@@ -28,11 +28,13 @@ class DailyCheckIn(models.Model):
     dailyPractices = models.CharField(max_length=100)
     date = models.DateField()
 
+
 class Plan(models.Model):
     plan = models.CharField(max_length=100)
     date = models.DateField(default=datetime.date.today)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class DailySummary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -45,5 +47,14 @@ class DailySummary(models.Model):
 
     def __str__(self):
         return f'Daily Summary for {self.date}'
+
     
-    
+class Photo(models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='photos/')
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.description  # Customize as needed.....
+
+
