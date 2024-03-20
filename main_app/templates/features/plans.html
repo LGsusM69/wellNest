@@ -2,7 +2,9 @@
 <h1 class="plan-title">Daily Plans</h1>
 {% if plan %}
 <div class="plan-made">
-  <p>Today is {{ current_date|date:'l, M jS' }} - {{ plan.plan }}</p>
+  <p class="today-is">
+    Today is {{ current_date|date:'l, M jS' }} - {{ plan.plan }}
+  </p>
 </div>
 {% else %}
 <div class="make-plan">
@@ -11,7 +13,7 @@
   <h3>Add a Plan</h3>
   <form action="{% url 'plan_create' %}" method="post">
     {% csrf_token %} {{ form.as_p }}
-    <button class="plan-btn" type="submit">Add Plan</button>
+    <button class="add-btn" type="submit">Add Plan</button>
   </form>
 </div>
 {% endblock %}

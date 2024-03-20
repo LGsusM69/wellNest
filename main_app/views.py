@@ -39,6 +39,7 @@ def checkins(request):
 
 def journal(request):
     current_date = date.today()
+    print('Today is', current_date)
     return render(request, 'features/journal.html', {'current_date': current_date})
 
 def plans(request):

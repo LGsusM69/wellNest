@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1 class="checkin">Check In</h1>
-<h5>Today is {{ current_date|date:'l, M jS' }}</h5>
+<h5 class="today-is">Today is {{ current_date|date:'l, M jS' }}</h5>
 <div class="all-checkins">
   <form action="" method="post">
     <div class="card mood-check">
@@ -246,7 +246,7 @@
 
       <input type="text" name="improve-tomorrow" />
     </div>
-    <button type="submit">Submit Check-In</button>
+    <button class="add-btn" type="submit">Submit Check-In</button>
   </form>
 </div>
 {% endblock %}
