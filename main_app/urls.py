@@ -13,7 +13,7 @@ urlpatterns = [
     path('plans/create/', views.PlanCreate.as_view(), name='plan_create'),
     path('dailysummaries/', views.dailysummaries, name='dailysummaries'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('upload_photo/', views.upload_photo, name='upload_photo'),
+    path('dailysummaires/', views.upload_photo, name='upload_photo'),
 
 ]
 

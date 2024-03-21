@@ -57,6 +57,6 @@ class Photo(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.description  # Customize as needed.....
+        return self.description  # customize this as needed.....
 
 

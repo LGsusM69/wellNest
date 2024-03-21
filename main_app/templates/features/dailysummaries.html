@@ -19,10 +19,15 @@
           <h4>Journal Entry</h4>
           <p>{{ daily_summary.journal_entry }}</p>
         </div>
+
+        <!-- User Photo -->
+        <div class="user-photo">
+          <img src="{{ daily_summary.user_photo.url }}" alt="User Photo">
+        </div>
       </div>
       {% endfor %}
     </div>
     {% endfor %}
-  </div>
+</div>
    
 {% endblock %}
