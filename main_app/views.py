@@ -100,10 +100,12 @@ def checkins(request):
             return redirect('/checkins')
         else:
             form = {}
-        return redirect('checkins/')
+        return redirect('/checkins/failed')
+    return render(request, 'features/checkins.html', {'current_date': current_date})
+
     
-    def checkin_failed():
-        return render(request, 'features/checkinfailed.html')
+def checkin_failed(request):
+    return render(request, 'features/checkinfailed.html')
 
 
 def journal(request):
