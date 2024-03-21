@@ -8,6 +8,21 @@ from .models import Journal, DailyCheckIn, Plan, DailySummary, DailyPrompt
 
 # Create your views here.
 
+class CheckinCreate(CreateView):
+    model = DailyCheckIn
+    fields = ["mood", "sleep", "diet", "exerciseType", 
+              "duration", "intensity", "practices",
+                "improvements"
+              
+              ]
+    success_url = '/checkins'
+
+    def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  # form.instance is the cat
+    # Let the CreateView do its job as usual
+        return super().form_valid(form)
+
 class JournalCreate(CreateView):
     model = Journal
     fields = ["freeWrite"]
