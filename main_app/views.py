@@ -101,6 +101,9 @@ def checkins(request):
         else:
             form = {}
         return redirect('checkins/')
+    
+    def checkin_failed():
+        return render(request, 'features/checkinfailed.html')
 
 
 def journal(request):
