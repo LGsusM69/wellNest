@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from .forms import JournalEntryForm, PhotoUploadForm
+from .forms import PhotoUploadForm
 from datetime import date
 from random import randint
+from .models import DailyCheckIn
 
 from .models import Journal, DailyCheckIn, Plan, DailySummary, DailyPrompt
 
@@ -63,32 +64,63 @@ def checkins(request):
     print('Today is', current_date)
     return render(request, 'features/checkins.html', {'current_date': current_date})
 
-# def journal(request):
-#     current_date = date.today()
-#     print('Today is', current_date)
-#     return render(request, 'features/journal.html', {'current_date': current_date})
+def checkin_create(request):
+    if request.methd == "POST":
+        form = {
+            'mood': request.POST.get('mood'),
+            'sleep': request.POST.get('sleep'),
+            'diet': request.POST.get('diet'),
+            'exerciseType': request.POST.get('exerciseType'),
+            'duration': request.POST.get('duration'),
+            'intensity': request.POST.get('intensity'),
+            'practices': request.POST.get('practices'),
+            'improvements': request.POST.get('improvements'),
+        }
+        if all(form.values()):
+            DailyCheckin.objects.create(
+                mood = form['mood'],
+                sleep = form['sleep'],
+                diet = form['diet'],
+                exerciseType = form['exerciseType'],
+                duration = form['duration'],
+                intenstity = form['intensity'],
+                practices = form['practices'],
+                improvements = form['improvements'],
+            )
+            return redirect('checkins/')
+        else:
+            form = {}
+        #return render(request, 'your_template.html', {'form': form})
+        return redirect('checkins/')
+
 
 def journal(request):
-    if request.method == 'POST':
-        journal_form = JournalEntryForm(request.POST)
-        photo_form = PhotoUploadForm(request.POST, request.FILES)
-        if journal_form.is_valid():
-            # Process journal entry form
-            journal_entry = journal_form.save(commit=False)
-            journal_entry.user = request.user
-            journal_entry.save()
-            return redirect('journal')  # Redirect to the journal page after form submission
-        elif photo_form.is_valid():
-            # Process photo upload form
-            photo = photo_form.save(commit=False)
-            photo.user = request.user
-            photo.save()
-            return redirect('journal')  # Redirect to the journal page after form submission
-    else:
-        journal_form = JournalEntryForm()
-        photo_form = PhotoUploadForm()
+    current_date = date.today()
+    print('Today is', current_date)
+    return render(request, 'features/journal.html', {'current_date': current_date})
 
-    return render(request, 'features/journal.html', {'journal_form': journal_form, 'photo_form': photo_form})
+#def journal(request):
+    #if request.method == 'POST':
+        #journal_form = JournalEntryForm(request.POST)
+        #photo_form = PhotoUploadForm(request.POST, request.FILES)
+        #if journal_form.is_valid():
+            # Process journal entry form
+            #journal_entry = journal_form.save(commit=False)
+            #journal_entry.user = request.user
+            #journal_entry.save()
+            #return redirect('journal')  # Redirect to the journal page after form submission
+        #elif photo_form.is_valid():
+            # Process photo upload form
+            #photo = photo_form.save(commit=False)
+            #photo.user = request.user
+            #photo.save()
+            #return redirect('journal')  # Redirect to the journal page after form submission
+    #else:
+        #journal_form = JournalEntryForm()
+        #photo_form = PhotoUploadForm()
+
+    #return render(request, 'features/journal.html')
+    #return render(request, 'features/journal.html', {'journal_form': journal_form, 'photo_form': photo_form})
 
 
 
