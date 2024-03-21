@@ -1,25 +1,31 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Add Plan</h1>
-<!-- Leaving the action empty makes the form post to the same url used to display it -->
+<div class="big-plan-container">
+  <h1>Add Plan</h1>
+  <!-- Leaving the action empty makes the form post to the same url used to display it -->
 
-<main class="container">
-  <div class="make-plan">
-    <p>No plans yet!</p>
-    <h3>Add a Plan</h3>
-    <form class="plan-form" action="/plans/create/" method="post">
-      <input
-        type="hidden"
-        name="csrfmiddlewaretoken"
-        value="LXloL1AlSk0FWLQaAcDSydY00g3LXo8vThnY869OASitt60hUHbHUOlgU25Ysado"
-      />
-      <div class="plan-resize">
-        <textarea elastic type="text" name="" id="add-plan-text"></textarea>
-      </div>
-      <button type="submit">Add Plan</button>
-    </form>
-  </div>
-</main>
-
+  <main class="plan-container">
+    <div class="make-plan">
+      <p>No plans yet!</p>
+      <h3>Add a Plan</h3>
+      <form class="plan-form" action="/plans/create/" method="post">
+        <input
+          type="hidden"
+          name="csrfmiddlewaretoken"
+          value="LXloL1AlSk0FWLQaAcDSydY00g3LXo8vThnY869OASitt60hUHbHUOlgU25Ysado"
+        />
+        <div class="textarea-resize">
+          <textarea
+            type="text"
+            name=""
+            id="add-plan-text"
+            cols="100"
+          ></textarea>
+        </div>
+        <button class="add-plan-btn" type="submit">Add Plan</button>
+      </form>
+    </div>
+  </main>
+</div>
 <script>
   var autoExpand = function (field) {
     // Reset field height
