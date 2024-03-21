@@ -9,6 +9,8 @@ import datetime
 class Journal(models.Model):
     freeWrite = models.TextField(max_length=1000)
     date = models.DateField(default=datetime.date.today)
+    photo = models.ImageField(upload_to='journal_photos/', blank=True, null=True)  # New field for photos by murs
+
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

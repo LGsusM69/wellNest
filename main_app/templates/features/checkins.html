@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1 class="checkin">Check In</h1>
-<h5>Today is {{ current_date|date:'l, M jS' }}</h5>
+<div class="checkin-date" >
+  <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
+</div>
 <div class="all-checkins">
   <form action="{% url 'checkin_create' %}" method="post">
     <div class="card mood-check">
