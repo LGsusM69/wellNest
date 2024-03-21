@@ -8,11 +8,8 @@
       <p>No plans yet!</p>
       <h3>Add a Plan</h3>
       <form class="plan-form" action="/plans/create/" method="post">
-        <input
-          type="hidden"
-          name="csrfmiddlewaretoken"
-          value="LXloL1AlSk0FWLQaAcDSydY00g3LXo8vThnY869OASitt60hUHbHUOlgU25Ysado"
-        />
+        {% csrf_token %}
+
         <div class="textarea-resize">
           <textarea
             type="text"
