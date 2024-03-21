@@ -1,24 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Add Plan</h1>
-<!-- Leaving the action empty makes the form post to the same url used to display it -->
 
 <main class="container">
-  <div class="make-plan">
-    <p>No plans yet!</p>
-    <h3>Add a Plan</h3>
-    <form class="plan-form" action="/plans/create/" method="post">
-      <input
-        type="hidden"
-        name="csrfmiddlewaretoken"
-        value="LXloL1AlSk0FWLQaAcDSydY00g3LXo8vThnY869OASitt60hUHbHUOlgU25Ysado"
-      />
-      <div class="plan-resize">
-        <textarea elastic type="text" name="" id="add-plan-text"></textarea>
-      </div>
-      <button type="submit">Add Plan</button>
-    </form>
-  </div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      <tr><th><label for="id_plan">Plan:</label></th><td><ul class="errorlist"></ul><textarea name="plan" cols="40" rows="10" required id="id_plan">
+</textarea></td></tr>
+      
+    </table>
+    <input type="submit" value="Add To My Plans!" class="btn">
+  </form>
 </main>
+
 
 <script>
   var autoExpand = function (field) {

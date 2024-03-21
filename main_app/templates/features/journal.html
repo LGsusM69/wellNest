@@ -4,9 +4,11 @@
   <div class="journal-title">
     <h1>Journal</h1>
   </div>
+  
   <div class="today-date">
     <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
   </div>
+
   <div class="journal-entry">
     <p class="journal-text">Share your day...</p>
     <form action="{% url 'journal_create' %}" method="post">

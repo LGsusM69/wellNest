@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <div class="plan-home">
   <h1 class="plan-title">Daily Plans</h1>
+  <div class="today-date">
+    <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
+  </div>
   {% if plan %}
   <div class="plan-made">
     <p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
