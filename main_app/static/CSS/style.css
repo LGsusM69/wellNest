@@ -4,6 +4,13 @@ body {
   min-height: 100vh;
   background-color: lightskyblue;
   margin: 0;
+  /* background */
+  background-image: url(background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+
 }
 
 .nav-wrapper ul.right {
@@ -36,9 +43,9 @@ main {
 
 footer.page-footer {
   font-size: 15px;
-  background-color: #b3dee2;
   text-align: center;
   margin-top: auto; 
+  color: #FFE8C8;
 }
 .footer-links li {
   display: inline-block;
@@ -47,32 +54,42 @@ footer.page-footer {
 }
 
 .footer-links li a {
-  color: #666666;
+  color: #FFE8C8;
   text-decoration: none;
+  font-size: 30px;
 }
 
 .footer-links li a:hover {
-  color: #999999;
+  color: #666666;
 }
 
 .left-brand-logo {
   display: flex;
   justify-content: left;
-  font-size: 50px;
+  font-size: 60px;
   text-align: left;
   text-decoration: none;
   list-style: none;
+  
 }
 
-.nav-wrapper ul.right li a.about-link,
+.left-brand-logo:visited {
+color: #FFE8C8;
+}
+
+.nav-wrapper ul.right li a.home-link,
+.nav-wrapper ul.right li a.logout-link,
 .nav-wrapper ul.right li a.login-link {
-  color:#666666 ;
+  color: #FFE8C8;
   margin-right: 15px; 
   text-decoration: none;
+  margin-top: -30px;
+  font-size: 25px;
 }
-.nav-wrapper ul.right li a.about-link:hover,
+.nav-wrapper ul.right li a.home-link:hover,
+.nav-wrapper ul.right li a.logout-link:hover,
 .nav-wrapper ul.right li a.login-link:hover {
-  color: #999999;
+  color: #666666;
 
 }
   
@@ -88,11 +105,32 @@ footer.page-footer {
 }
 
 h1 {
-  color: white;
+  color: #FFE8C8;
 }
 
 h2 {
-  color: white;
+  color:#FFE8C8;
+}
+
+h5 {
+  color: #FFE8C8;
+  background-color: rgba(119, 144, 170, 0.5);
+  font-size: 16px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+.today-date {
+  width: 300px
+}
+
+.checkin-date{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
 }
 
 .summary-date-box {
@@ -121,7 +159,7 @@ h2 {
 }
 
 div.journal-entry {
-  background: #dae6335b;
+  background: rgb(255, 232, 200, 0.5);
   margin-bottom: 30px;
 }
 
