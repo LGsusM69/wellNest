@@ -153,6 +153,11 @@ h5 {
 }
 
 /* JOURNAL */
+
+.journal-title {
+  color: #007bff;
+}
+
 div.journal-entry {
   background: rgb(255, 232, 200, 0.5);
   margin-bottom: 30px;
@@ -160,6 +165,7 @@ div.journal-entry {
 
 .journal-from-text {
   align-items: center;
+  text-align: center;
 }
 .journal-entry {
   margin-top: 10px;
@@ -174,6 +180,8 @@ div.journal-entry {
 }
 
 .on-your-mind {
+  align-items: center;
+  width: 200px;
   color: #007bff;
   background-color: #cb94ffd2;
   border-radius: 10px;
@@ -184,13 +192,17 @@ div.journal-entry {
   width: 100%;
 }
 .make-journal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journal-container {
   background-color: #f9f9f9c4;
   padding: 40px;
   border-radius: 60%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  align-items: center;
 }
-
 /* CHECK INS */
 .card {
   border: 1px solid #ccc;
@@ -384,6 +396,12 @@ py .card.daily-practices-check input[type="checkbox"] {
 }
 
 /* ADD A PLAN */
+.plan-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .make-plan-home {
   background-color: #f9f9f9;
   padding: 40px;
@@ -393,7 +411,10 @@ py .card.daily-practices-check input[type="checkbox"] {
   width: 200px;
 }
 
-.container {
+.plan-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -402,12 +423,10 @@ py .card.daily-practices-check input[type="checkbox"] {
 
 .make-plan {
   background-color: #f9f9f9e0;
-  width: 100%;
-  height: 100%;
+
   padding: 40px;
   border-radius: 60%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  align-items: center;
 }
 
 .make-plan h3 {

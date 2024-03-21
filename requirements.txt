@@ -12,7 +12,6 @@ oauthlib==3.2.2
 Pillow==10.0.0
 psycopg2==2.9.9
 psycopg2-binary==2.9.9
-python-apt==2.6.0+ubuntu1
 python-dateutil==2.8.2
 python-debian==0.1.49+ubuntu2
 SecretStorage==3.3.3
