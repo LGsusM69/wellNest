@@ -35,7 +35,7 @@ class DailyCheckIn(models.Model):
 
 
 
-    date = models.DateField()
+    date = models.DateField(default=datetime.date.today)
 
 
 class Plan(models.Model):
