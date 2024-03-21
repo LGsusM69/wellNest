@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <h1>{{ daily_prompt.prompt }}</h1>
+    <!-- Ensure that you include the CSRF token using the {% csrf_token %} template tag -->
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
 {% extends 'base.html' %} {% block content %}
 <h1 class="journal-title">{{ daily_prompt.prompt }}</h1>
 <main class="journal-container">
@@ -68,3 +77,4 @@
   );
 </script>
 {% endblock %}
+
