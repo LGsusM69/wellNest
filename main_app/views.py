@@ -100,14 +100,11 @@ def home(request):
 def checkins(request):
     current_date = date.today()
     print('Today is', current_date)
-    return render(request, 'features/checkins.html', {'current_date': current_date})
 
-
-def checkin_create(request):
-    if request.methd == "POST":
+    if request.method == "POST":
         form = {
             'mood': request.POST.get('mood'),
-            'sleep': request.POST.get('sleep'),
+            'sleep': request.POST.get('sleep_rating'),
             'diet': request.POST.get('diet'),
             'exerciseType': request.POST.get('exerciseType'),
             'duration': request.POST.get('duration'),
@@ -115,22 +112,34 @@ def checkin_create(request):
             'practices': request.POST.get('practices'),
             'improvements': request.POST.get('improvements'),
         }
+        print("form: ")
+        print(form)
         if all(form.values()):
-            DailyCheckin.objects.create(
+            DailyCheckIn.objects.create(
                 mood = form['mood'],
                 sleep = form['sleep'],
                 diet = form['diet'],
                 exerciseType = form['exerciseType'],
                 duration = form['duration'],
-                intenstity = form['intensity'],
+                intensity = form['intensity'],
                 practices = form['practices'],
                 improvements = form['improvements'],
+                user = request.user
             )
-            return redirect('checkins/')
+            return redirect('/checkins')
         else:
             form = {}
         #return render(request, 'your_template.html', {'form': form})
-        return redirect('checkins/')
+        return redirect('/checkins/failed')
+
+    return render(request, 'features/checkins.html', {'current_date': current_date})
+
+def checkin_failed(request):
+    return render(request, 'features/checkinfailed.html')
+
+
+def checkin_create(request):
+    return
 
 
 def journal(request):

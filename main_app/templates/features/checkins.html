@@ -10,44 +10,45 @@
     <div class="card mood-check">
       <h4>Mood Check In</h4>
       <p>Select your mood:</p>
-      <div class="mood-select">
-        <div>
-          <input type="radio" id="happy" name="mood" value="Happy" />
-          <label for="happy">Happy</label><br />
-        </div>
-        <div>
-          <input type="radio" id="sad" name="mood" value="Sad" />
-          <label for="sad">Sad</label><br />
-        </div>
-        <div>
-          <input type="radio" id="angry" name="mood" value="Angry" />
-          <label for="angry">Angry</label><br />
-        </div>
-        <div>
-          <input type="radio" id="anxious" name="mood" value="Anxious" />
-          <label for="anxious">Anxious</label><br />
-        </div>
-        <div>
-          <input type="radio" id="excited" name="mood" value="Excited" />
-          <label for="excited">Excited</label><br />
-        </div>
-        <div>
-          <input type="radio" id="stressed" name="mood" value="stressed" />
-          <label for="stressed">Stressed</label><br />
-        </div>
-        <div>
-          <input type="radio" id="content" name="mood" value="Content" />
-          <label for="content">Content</label><br />
-        </div>
-        <div>
-          <input type="radio" id="frustrated" name="mood" value="Frustrated" />
-          <label for="frustrated">Frustrated</label><br />
-        </div>
-        <div>
-          <input type="radio" id="relaxed" name="mood" value="Relaxed" />
-          <label for="relaxed">Relaxed</label><br />
-        </div>
-      </div>
+        <fieldset class="mood-select" id="mood" name="mood">
+          <div>
+            <input type="radio" id="happy" name="mood" value="Happy" />
+            <label for="happy">Happy</label><br />
+          </div>
+          <div>
+            <input type="radio" id="sad" name="mood" value="Sad" />
+            <label for="sad">Sad</label><br />
+          </div>
+          <div>
+            <input type="radio" id="angry" name="mood" value="Angry" />
+            <label for="angry">Angry</label><br />
+          </div>
+          <div>
+            <input type="radio" id="anxious" name="mood" value="Anxious" />
+            <label for="anxious">Anxious</label><br />
+          </div>
+          <div>
+            <input type="radio" id="excited" name="mood" value="Excited" />
+            <label for="excited">Excited</label><br />
+          </div>
+          <div>
+            <input type="radio" id="stressed" name="mood" value="stressed" />
+            <label for="stressed">Stressed</label><br />
+          </div>
+          <div>
+            <input type="radio" id="content" name="mood" value="Content" />
+            <label for="content">Content</label><br />
+          </div>
+          <div>
+            <input type="radio" id="frustrated" name="mood" value="Frustrated" />
+            <label for="frustrated">Frustrated</label><br />
+          </div>
+          <div>
+            <input type="radio" id="relaxed" name="mood" value="Relaxed" />
+            <label for="relaxed">Relaxed</label><br />
+          </div>
+        </fieldset>
+
     </div>
 
     <div class="card sleep-check">
@@ -74,7 +75,7 @@
       <input
         type="checkbox"
         id="breakfast"
-        name="breakfast"
+        name="diet"
         value="breakfast"
       />
       <label for="breakfast">Did I eat breakfast today?</label><br />
@@ -82,20 +83,20 @@
       <input
         type="checkbox"
         id="fruits_veggies"
-        name="fruits_veggies"
+        name="diet"
         value="fruits_veggies"
       />
       <label for="fruits_veggies"
         >Did I eat fruits and/or vegetables today?</label
       ><br />
 
-      <input type="checkbox" id="water" name="water" value="water" />
+      <input type="checkbox" id="water" name="diet" value="water" />
       <label for="water">Did I drink enough water today?</label><br />
 
       <input
         type="checkbox"
         id="sugary_drinks"
-        name="sugary_drinks"
+        name="diet"
         value="sugary_drinks"
       />
       <label for="sugary_drinks"
@@ -105,7 +106,7 @@
       <input
         type="checkbox"
         id="balanced_meal"
-        name="balanced_meal"
+        name="diet"
         value="balanced_meal"
       />
       <label for="balanced_meal"
@@ -116,7 +117,7 @@
       <input
         type="checkbox"
         id="mindful_snacking"
-        name="mindful_snacking"
+        name="diet"
         value="mindful_snacking"
       />
       <label for="mindful_snacking"
@@ -127,7 +128,7 @@
       <input
         type="checkbox"
         id="home_cooked_meals"
-        name="home_cooked_meals"
+        name="diet"
         value="home_cooked_meals"
       />
       <label for="home_cooked_meals"
@@ -138,7 +139,7 @@
       <input
         type="checkbox"
         id="late_night_snacking"
-        name="late_night_snacking"
+        name="diet"
         value="late_night_snacking"
       />
       <label for="late_night_snacking">Did I avoid late-night snacking?</label
@@ -147,7 +148,7 @@
       <input
         type="checkbox"
         id="portion_control"
-        name="portion_control"
+        name="diet"
         value="portion_control"
       />
       <label for="portion_control"
@@ -157,7 +158,7 @@
       <input
         type="checkbox"
         id="skip_meals"
-        name="skip_meals"
+        name="diet"
         value="skip_meals"
       />
       <label for="skip_meals"
@@ -170,21 +171,23 @@
       <h4>Exercise Check In</h4>
 
       <p>Type of exercise:</p>
-      <input type="text" name="exercise-type" id="exercise-type" value="" />
+      <input type="text" name="exerciseType" id="exercise-type" value="" />
       <p>Duration:</p>
       <input
         type="text"
-        name="exercise-duration"
+        name="duration"
         id="exercise-duration"
         value=""
       />
       <p>Intensity:</p>
-      <input type="checkbox" name="low-int" id="low-int" value="low-int" />
-      <label for="low-int">Low Intensity</label>
-      <input type="checkbox" name="mod-int" id="mod-int" value="mod-int" />
-      <label for="mod-int">Moderate Intensity</label>
-      <input type="checkbox" name="high-int" id="high-int" value="high-int" />
-      <label for="high-int">High Intensity</label>
+      <fieldset id="intensity" name="intensity">
+        <input type="radio" name="intensity" id="low-int" value="low-int" />
+        <label for="low-int">Low Intensity</label>
+        <input type="radio" name="intensity" id="mod-int" value="mod-int" />
+        <label for="mod-int">Moderate Intensity</label>
+        <input type="radio" name="intensity" id="high-int" value="high-int" />
+        <label for="high-int">High Intensity</label>
+      </fieldset>
     </div>
 
     <div class="card daily-practices-check">
@@ -193,7 +196,7 @@
         <div class="column">
           <input
             type="checkbox"
-            name="mindfulness"
+            name="practices"
             id="mindfulness"
             value="mindfulness"
           />
@@ -202,7 +205,7 @@
         <div class="column">
           <input
             type="checkbox"
-            name="journaling"
+            name="practices"
             id="journaling"
             value="journaling"
           />
@@ -211,7 +214,7 @@
         <div class="column">
           <input
             type="checkbox"
-            name="learning"
+            name="practices"
             id="learning"
             value="learning"
           />
@@ -219,13 +222,13 @@
         </div>
 
         <div class="column">
-          <input type="checkbox" name="social" id="social" value="social" />
+          <input type="checkbox" name="practices" id="social" value="social" />
           <label for="social">Social Connection</label>
         </div>
         <div class="column">
           <input
             type="checkbox"
-            name="creativity"
+            name="practices"
             id="creativity"
             value="creativity"
           />
@@ -234,7 +237,7 @@
         <div class="column">
           <input
             type="checkbox"
-            name="self-care"
+            name="practices"
             id="self-care"
             value="self-care"
           />
@@ -244,9 +247,9 @@
     </div>
 
     <div class="card better-tomorrow">
-      <p>What can I improve on for tomorrow?</p>
+      <p><strong>What can I improve on for tomorrow?</strong></p>
 
-      <input type="text" name="improve-tomorrow" />
+      <input type="text" name="improvements" />
     </div>
     <button type="submit">Submit Check-In</button>
   </form>
