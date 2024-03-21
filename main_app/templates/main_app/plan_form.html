@@ -1,18 +1,28 @@
 {% extends 'base.html' %} {% block content %}
+<div class="big-plan-container">
+  <h1>Add Plan</h1>
+  <!-- Leaving the action empty makes the form post to the same url used to display it -->
 
-<main class="container">
-  <form action="" method="POST">
-    {% csrf_token %}
-    <table>
-      <tr><th><label for="id_plan">Plan:</label></th><td><ul class="errorlist"></ul><textarea name="plan" cols="40" rows="10" required id="id_plan">
-</textarea></td></tr>
-      
-    </table>
-    <input type="submit" value="Add To My Plans!" class="btn">
-  </form>
-</main>
+  <main class="plan-container">
+    <div class="make-plan">
+      <p>No plans yet!</p>
+      <h3>Add a Plan</h3>
+      <form class="plan-form" action="/plans/create/" method="post">
+        {% csrf_token %}
 
-
+        <div class="textarea-resize">
+          <textarea
+            type="text"
+            name=""
+            id="add-plan-text"
+            cols="100"
+          ></textarea>
+        </div>
+        <button class="add-plan-btn" type="submit">Add Plan</button>
+      </form>
+    </div>
+  </main>
+</div>
 <script>
   var autoExpand = function (field) {
     // Reset field height

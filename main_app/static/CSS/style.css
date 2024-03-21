@@ -10,8 +10,14 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  font-family: sans-serif;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .nav-wrapper ul.right {
   display: flex;
   justify-content: flex-end;
@@ -34,7 +40,7 @@ body {
 }
 
 main {
-  flex: 1;
+  display: flex;
   text-align: center;
 }
 
@@ -92,12 +98,6 @@ footer.page-footer {
   font-size: 20px;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 h1 {
   color: #ffe8c8;
 }
@@ -112,7 +112,10 @@ h5 {
   font-size: 16px;
   padding-right: 20px;
   padding-left: 20px;
-  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(94, 94, 255);
 }
 .today-date {
   width: 300px;
@@ -152,21 +155,61 @@ h5 {
   margin-bottom: 10px;
 }
 
-div.journal-entry {
-  background: rgb(255, 232, 200, 0.5);
+/* JOURNAL */
+
+.journal-title {
+  color: #007bff;
+}
+
+.journal-text {
   margin-bottom: 30px;
 }
 
+.journal-form-text {
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9c4;
+  padding: 90px;
+  border-radius: 60%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 50%;
+}
 .journal-entry {
   margin-top: 10px;
   border-top: 1px solid #ccc;
   padding-top: 10px;
   padding-bottom: 20px;
   border-radius: 5%;
+  background-color: #f9f9f9d5;
+  margin-bottom: 30px;
+  border: 1px solid rgb(94, 94, 255);
 }
 
 .journal-photo-btn {
-  margin: 10px;
+  margin: 20px;
+}
+
+.on-your-mind {
+  align-items: center;
+  width: 200px;
+  color: #007bff;
+  background-color: #e4c6ffd2;
+  border-radius: 10px;
+  border: 1px solid purple;
+  padding: 5px;
+}
+
+textarea {
+  overflow: hidden;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  border-radius: 10%;
+}
+
+.make-journal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* CHECK INS */
@@ -174,6 +217,7 @@ div.journal-entry {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
+  padding-bottom: 40px;
   margin: 0px 30px 20px 30px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -197,6 +241,7 @@ div.journal-entry {
   );
   background-size: 100%;
   color: red;
+  padding-bottom: 40px;
 }
 
 .mood-select {
@@ -221,6 +266,7 @@ div.journal-entry {
   margin-bottom: 20px;
 
   font-family: Arial, sans-serif;
+  padding-bottom: 40px;
 }
 
 .card.sleep-check h4 {
@@ -362,27 +408,40 @@ py .card.daily-practices-check input[type="checkbox"] {
 }
 
 /* ADD A PLAN */
+.plan-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .make-plan-home {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9d5;
   padding: 40px;
   border-radius: 10%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   align-items: center;
   width: 200px;
+  border: 1px solid rgb(94, 94, 255);
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+.big-plan-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-
-.make-plan {
-  background-color: #f9f9f9;
-  padding: 40px;
+.plan-container {
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9c4;
+  padding: 90px;
   border-radius: 60%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  align-items: center;
+  height: 50%;
+}
+
+div.make-plan {
+  padding: 40px;
 }
 
 .make-plan h3 {
@@ -398,10 +457,11 @@ py .card.daily-practices-check input[type="checkbox"] {
   border-radius: 5px;
   resize: vertical;
   min-height: 50px;
+  overflow: hidden;
 }
 
 button[type="submit"] {
-  background-color: #007bff;
+  background-color: #d56cff;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -411,9 +471,13 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #b700ff;
 }
 
-.plan-resize {
+.textarea-resize {
   display: grid;
+}
+
+.add-plan-btn {
+  margin-top: 20px;
 }
