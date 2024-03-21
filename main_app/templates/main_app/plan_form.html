@@ -1,15 +1,52 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<h1>Add Plan</h1>
+<!-- Leaving the action empty makes the form post to the same url used to display it -->
 
-{% block content %}
-  <h1>Add Plan</h1>
-  <!-- Leaving the action empty makes the form post to the same url used to display it -->
-  <form action="" method="POST">
-    <!-- Django requires the following for security purposes -->
-    {% csrf_token %}
-    <table>
-      <!-- Render the inputs inside of <tr>s & <td>s -->
-      {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit!" class="btn">
-  </form>
+<main class="container">
+  <div class="make-plan">
+    <p>No plans yet!</p>
+    <h3>Add a Plan</h3>
+    <form class="plan-form" action="/plans/create/" method="post">
+      <input
+        type="hidden"
+        name="csrfmiddlewaretoken"
+        value="LXloL1AlSk0FWLQaAcDSydY00g3LXo8vThnY869OASitt60hUHbHUOlgU25Ysado"
+      />
+      <div class="plan-resize">
+        <textarea elastic type="text" name="" id="add-plan-text"></textarea>
+      </div>
+      <button type="submit">Add Plan</button>
+    </form>
+  </div>
+</main>
+
+<script>
+  var autoExpand = function (field) {
+    // Reset field height
+    field.style.height = "inherit";
+
+    // Get the computed styles for the element
+    var computed = window.getComputedStyle(field);
+
+    // Calculate the height
+    var height =
+      parseInt(computed.getPropertyValue("border-top-width"), 10) +
+      parseInt(computed.getPropertyValue("padding-top"), 10) +
+      field.scrollHeight +
+      parseInt(computed.getPropertyValue("padding-bottom"), 10) +
+      parseInt(computed.getPropertyValue("border-bottom-width"), 10);
+
+    field.style.height = height + "px";
+  };
+
+  document.addEventListener(
+    "input",
+    function (event) {
+      if (event.target.tagName.toLowerCase() !== "textarea") return;
+      autoExpand(event.target);
+    },
+    false
+  );
+</script>
+
 {% endblock %}

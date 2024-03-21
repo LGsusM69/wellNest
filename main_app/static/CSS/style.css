@@ -10,7 +10,6 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-
 }
 
 .nav-wrapper ul.right {
@@ -34,18 +33,16 @@ body {
   text-decoration: none;
 }
 
-
 main {
   flex: 1;
   text-align: center;
 }
 
-
 footer.page-footer {
   font-size: 15px;
   text-align: center;
-  margin-top: auto; 
-  color: #FFE8C8;
+  margin-top: auto;
+  color: #ffe8c8;
 }
 .footer-links li {
   display: inline-block;
@@ -54,7 +51,7 @@ footer.page-footer {
 }
 
 .footer-links li a {
-  color: #FFE8C8;
+  color: #ffe8c8;
   text-decoration: none;
   font-size: 30px;
 }
@@ -70,18 +67,17 @@ footer.page-footer {
   text-align: left;
   text-decoration: none;
   list-style: none;
-  
 }
 
 .left-brand-logo:visited {
-color: #FFE8C8;
+  color: #ffe8c8;
 }
 
 .nav-wrapper ul.right li a.home-link,
 .nav-wrapper ul.right li a.logout-link,
 .nav-wrapper ul.right li a.login-link {
-  color: #FFE8C8;
-  margin-right: 15px; 
+  color: #ffe8c8;
+  margin-right: 15px;
   text-decoration: none;
   margin-top: -30px;
   font-size: 25px;
@@ -90,9 +86,8 @@ color: #FFE8C8;
 .nav-wrapper ul.right li a.logout-link:hover,
 .nav-wrapper ul.right li a.login-link:hover {
   color: #666666;
-
 }
-  
+
 .login-link {
   font-size: 20px;
 }
@@ -101,19 +96,18 @@ color: #FFE8C8;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  
 }
 
 h1 {
-  color: #FFE8C8;
+  color: #ffe8c8;
 }
 
 h2 {
-  color:#FFE8C8;
+  color: #ffe8c8;
 }
 
 h5 {
-  color: #FFE8C8;
+  color: #ffe8c8;
   background-color: rgba(119, 144, 170, 0.5);
   font-size: 16px;
   padding-right: 20px;
@@ -121,16 +115,16 @@ h5 {
   border-radius: 10px;
 }
 .today-date {
-  width: 300px
+  width: 300px;
 }
 
-.checkin-date{
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    align-content: center;
+.checkin-date {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
 }
 
 .summary-date-box {
@@ -167,6 +161,12 @@ div.journal-entry {
   margin-top: 10px;
   border-top: 1px solid #ccc;
   padding-top: 10px;
+  padding-bottom: 20px;
+  border-radius: 5%;
+}
+
+.journal-photo-btn {
+  margin: 10px;
 }
 
 /* CHECK INS */
@@ -182,18 +182,18 @@ div.journal-entry {
 .card.mood-check {
   background: linear-gradient(
     45deg,
-    #ff9999,
-    #ffcc99,
-    #ffff99,
-    #ccff99,
+    #ff9999d5,
+    #ffcc99d7,
+    #ffff99da,
+    #ccff99d0,
     #99ff99,
-    #99ffcc,
-    #99ffff,
-    #99ccff,
-    #9999ff,
-    #cc99ff,
-    #ff99ff,
-    #ff99cc
+    #99ffccd5,
+    #99ffffe0,
+    #99ccffd3,
+    #9999ffc9,
+    #cc99ffce,
+    #ff99ffd2,
+    #ff99cccc
   );
   background-size: 100%;
   color: red;
@@ -207,7 +207,12 @@ div.journal-entry {
 
 /* SLEEP CHECK IN */
 .card.sleep-check {
-  background: linear-gradient(135deg, #ffffff, #479fbe, #000000);
+  background: linear-gradient(
+    135deg,
+    #ffffffcc,
+    #479ebed8,
+    rgba(0, 0, 0, 0.815)
+  );
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -273,7 +278,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 /* EATING CHECK IN  */
 .card.eating-check {
   text-align: left;
-  background: linear-gradient(45deg, #ffd966, #ffb3b3);
+  background: linear-gradient(45deg, #ffd966da, #ffb3b3d0);
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -336,17 +341,16 @@ input[type="checkbox"] + label {
 }
 
 .column {
-  flex: 0 0 calc(50% - 10px); /* Set each column to take up 50% of the row width with spacing */
-  padding: 5px; /* Adjust padding for spacing */
-  box-sizing: border-box; /* Include padding in column width calculation */
+  flex: 0 0 calc(50% - 10px);
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .card.daily-practices-check label {
-  margin-left: 5px; /* Adjust margin for spacing between checkbox and label */
+  margin-left: 5px;
 }
-py
-.card.daily-practices-check input[type="checkbox"] {
-  margin-right: 5px; /* Adjust margin for spacing between checkboxes */
+py .card.daily-practices-check input[type="checkbox"] {
+  margin-right: 5px;
 }
 
 .card.daily-practices-check h4 {
@@ -354,5 +358,62 @@ py
 }
 
 .card.better-tomorrow {
-  background: linear-gradient(45deg, #fdff78, #ffd966, #cab600);
+  background: linear-gradient(45deg, #fdff78d8, #ffd966e3, #cab600d2);
+}
+
+/* ADD A PLAN */
+.make-plan-home {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 10%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  width: 200px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.make-plan {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 60%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.make-plan h3 {
+  margin-top: 0;
+}
+
+#add-plan-text {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 50px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.plan-resize {
+  display: grid;
 }

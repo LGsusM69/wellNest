@@ -63,12 +63,8 @@ def checkins(request):
     print('Today is', current_date)
     return render(request, 'features/checkins.html', {'current_date': current_date})
 
-# def journal(request):
-#     current_date = date.today()
-#     print('Today is', current_date)
-#     return render(request, 'features/journal.html', {'current_date': current_date})
-
 def journal(request):
+    current_date = date.today()
     if request.method == 'POST':
         journal_form = JournalEntryForm(request.POST)
         photo_form = PhotoUploadForm(request.POST, request.FILES)
@@ -88,7 +84,7 @@ def journal(request):
         journal_form = JournalEntryForm()
         photo_form = PhotoUploadForm()
 
-    return render(request, 'features/journal.html', {'journal_form': journal_form, 'photo_form': photo_form})
+    return render(request, 'features/journal.html', {'journal_form': journal_form, 'photo_form': photo_form, 'current_date': current_date })
 
 
 
