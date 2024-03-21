@@ -6,9 +6,9 @@
 </div>
 <div class="all-checkins">
   <form action="{% url 'checkins'%}" method="post">
+    {% csrf_token %}
     <div class="card mood-check">
       <h4>Mood Check In</h4>
-      {% csrf_token %}
       <p>Select your mood:</p>
       <div class="mood-select">
         <div>

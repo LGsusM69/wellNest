@@ -26,10 +26,10 @@ class DailyCheckIn(models.Model):
     diet = models.CharField(max_length=100)
     #list of options
     exerciseType = models.CharField(max_length=100)
-    duration = models.IntegerField()
+    duration = models.IntegerField(default=1)
     intensity = models.CharField(max_length=100)
     practices = models.CharField(max_length=100)
-    improvements = models.TextField(max_length=250)
+    improvements = models.TextField()
     date = models.DateField()
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
