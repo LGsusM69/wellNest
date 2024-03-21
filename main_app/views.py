@@ -50,8 +50,28 @@ def checkins(request):
 
 def journal(request):
     current_date = date.today()
-    print('Today is', current_date)
-    return render(request, 'features/journal.html', {'current_date': current_date})
+    if request.method == 'POST':
+        journal_form = JournalEntryForm(request.POST)
+        photo_form = PhotoUploadForm(request.POST, request.FILES)
+        if journal_form.is_valid():
+            # Process journal entry form
+            journal_entry = journal_form.save(commit=False)
+            journal_entry.user = request.user
+            journal_entry.save()
+            return redirect('journal')  # Redirect to the journal page after form submission
+        elif photo_form.is_valid():
+            # Process photo upload form
+            photo = photo_form.save(commit=False)
+            photo.user = request.user
+            photo.save()
+            return redirect('journal')  # Redirect to the journal page after form submission
+    else:
+        journal_form = JournalEntryForm()
+        photo_form = PhotoUploadForm()
+
+    return render(request, 'features/journal.html', {'journal_form': journal_form, 'photo_form': photo_form, 'current_date': current_date })
+
+
 
 def plans(request):
     return render(request, 'features/plans.html')

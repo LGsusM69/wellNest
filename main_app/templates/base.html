@@ -22,10 +22,11 @@
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/about" class="about-link">About</a></li>
+            <li><a href="/" class="home-link">Home</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-            <!-- FIGURE OUT HOW TO MAKE BOTTOM NAV THE IF -->
+            <li>
+              <a href="{% url 'logout' %}" class="logout-link">Log Out</a>
+            </li>
             {% else %}
             <li><a href="{% url 'login' %}" class="login-link">Log In</a></li>
             {% endif %}

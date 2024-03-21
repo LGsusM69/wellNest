@@ -7,21 +7,18 @@
   <div class="today-date">
     <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
   </div>
-  <div class="journal-question">
-    Daily Question (to be got from API eventually??)
-  </div>
   <div class="journal-entry">
-    <p class="journal-text">Write about your day...</p>
+    <p class="journal-text">Share your day...</p>
     <form action="{% url 'journal_create' %}" method="post">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">Add Entry</button>
     </form>
     <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Photo That Made Me Happy</button>
+      {% csrf_token %} {{ form.as_p }}
+      <button class="journal-photo-btn" type="submit">
+        Photo That Made Me Happy
+      </button>
     </form>
-
   </div>
 </div>
 
