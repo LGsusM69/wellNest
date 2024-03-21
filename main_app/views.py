@@ -121,3 +121,5 @@ def upload_photo(request):
     else:
         form = PhotoUploadForm()
     return render(request, 'journal.html', {'form': form})
+
+

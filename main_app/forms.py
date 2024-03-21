@@ -6,7 +6,8 @@ from django import forms
 class JournalEntryForm(ModelForm):
     class Meta:
         model = Journal
-        fields = ['freeWrite', 'user', 'photo'] # photo field was added by murs
+        # fields = ['freeWrite', 'user', 'photo'] # photo field was added by murs
+        fields = ['freeWrite', 'photo'] # remove user VS
 
 
 

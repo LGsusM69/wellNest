@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import DailyCheckIn, Journal, User, DailySummary, Plan, DailyPrompt
+# remove user vs
+from .models import DailyCheckIn, Journal, DailySummary, Plan, DailyPrompt
 
 # Register your models here.
 
