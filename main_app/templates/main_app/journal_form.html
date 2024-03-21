@@ -3,10 +3,9 @@
 {% block content %}
 <main class="container">
     <h1>{{ daily_prompt.prompt }}</h1>
-    <!-- Leaving the action empty makes the form post to the same url used to display it -->
+    <!-- Ensure that you include the CSRF token using the {% csrf_token %} template tag -->
     <form action="" method="POST">
-      <!-- Django requires the following for security purposes -->
-      <input type="hidden" name="csrfmiddlewaretoken" value="qbvEjgstg89Mq3cPGazbWf6rUlGC127ToPxr9uTxxSMySd40YZIM4jvx8fPyZ5Xk">
+      {% csrf_token %}
       <table>
         <!-- Render the inputs inside of <tr>s & <td>s -->
         <tr><th><label for="id_freeWrite">FreeWrite:</label></th><td><ul class="errorlist"></ul><textarea name="freeWrite" cols="40" rows="10" maxlength="1000" required id="id_freeWrite">
@@ -15,5 +14,5 @@
       </table>
       <input type="submit" value="Submit!" class="btn">
     </form>
-  </main>
+</main>
 {% endblock %}
