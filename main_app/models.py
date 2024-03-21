@@ -19,20 +19,24 @@ class DailyPrompt(models.Model):
 
     
 class DailyCheckIn(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     mood = models.CharField(max_length=100)
     #list of available moods
     sleep = models.CharField(max_length=100)
     #int 0 - 100
     diet = models.CharField(max_length=100)
     #list of options
+
     exerciseType = models.CharField(max_length=100)
     duration = models.IntegerField(default=1)
     intensity = models.CharField(max_length=100)
     practices = models.CharField(max_length=100)
     improvements = models.TextField()
+
+
+
     date = models.DateField()
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Plan(models.Model):
     plan = models.CharField(max_length=100)
@@ -50,6 +54,7 @@ class DailySummary(models.Model):
     exercise_check = models.CharField(max_length=100)
     journal_entry = models.TextField()
 
+
     def __str__(self):
         return f'Daily Summary for {self.date}'
 
@@ -60,6 +65,6 @@ class Photo(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.description  # Customize as needed.....
+        return self.description  # customize this as needed.....
 
 
