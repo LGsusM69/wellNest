@@ -19,17 +19,20 @@ class DailyPrompt(models.Model):
 
     
 class DailyCheckIn(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     mood = models.CharField(max_length=100)
     #list of available moods
     sleep = models.CharField(max_length=100)
     #int 0 - 100
     diet = models.CharField(max_length=100)
     #list of options
-    exercise = models.CharField(max_length=100)
-    dailyPractices = models.CharField(max_length=100)
+    exerciseType = models.CharField(max_length=100)
+    duration = models.IntegerField()
+    intensity = models.CharField(max_length=100)
+    practices = models.CharField(max_length=100)
+    improvements = models.TextField(max_length=250)
     date = models.DateField()
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Plan(models.Model):
     plan = models.CharField(max_length=100)
