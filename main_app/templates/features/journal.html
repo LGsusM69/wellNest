@@ -1,5 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 
+{% block content %}
 <div class="journal-card">
   <div class="journal-title">
     <h1>Journal</h1>
@@ -10,18 +11,33 @@
   </div>
 
   <div class="journal-entry">
-    <p class="journal-text">Share your day...</p>
-    <form action="{% url 'journal_create' %}" method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">Add Entry</button>
-    </form>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %} {{ form.as_p }}
-      <button class="journal-photo-btn" type="submit">
-        Photo That Made Me Happy
-      </button>
+    {% if user_entry %}
+    <p class="journal-text">{{ user_entry.freeWrite }}</p>
+    {% else %}
+    <p class="journal-text">No journal entry for today.</p>
+    {% endif %}
+  </div>
+
+  <div class="journal-form">
+    <h2>Add Journal Entry</h2>
+    <form class="journal-form-text" action="{% url 'journal_create' %}" method="POST">
+      {% csrf_token %}
+      <div class="make-journal">
+        <h3 class="on-your-mind">What's on your mind?</h3>
+        <table class="freeWrite">
+          <!-- Render the inputs inside of <tr>s & <td>s -->
+          <tr>
+            <th><label for="id_freeWrite"></label></th>
+            <td>
+              <ul class="errorlist"></ul>
+              <textarea name="freeWrite" maxlength="3000" required id="id_freeWrite" rows="15" cols="40"></textarea>
+            </td>
+          </tr>
+        </table>
+        <button class="journal-photo-btn" type="submit">Submit Journal Entry</button>
+      </div>
     </form>
   </div>
 </div>
-
 {% endblock %}
+

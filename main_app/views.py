@@ -3,11 +3,12 @@ from django.views.generic.edit import CreateView
 from .forms import PhotoUploadForm
 from datetime import date
 from random import randint
-from .models import DailyCheckIn
 from .models import Journal, DailyCheckIn, Plan, DailySummary, DailyPrompt
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User  # 
+from django.contrib.auth.models import User  
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from datetime import datetime
 
 
 
@@ -104,9 +105,11 @@ def checkin_create(request):
 
 
 def journal(request):
-    current_date = date.today()
+    # current_date = date.today()
+    current_date = timezone.now().date()
     print('Today is', current_date)
-    return render(request, 'features/journal.html', {'current_date': current_date})
+    user_entry = Journal.objects.filter(user=request.user, date=current_date).first()
+    return render(request, 'features/journal.html', {'current_date': current_date, 'user_entry': user_entry})
 
 
 def plans(request):
