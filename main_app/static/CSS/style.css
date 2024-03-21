@@ -10,6 +10,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  font-family: sans-serif;
 }
 
 .container {
@@ -39,7 +40,7 @@ body {
 }
 
 main {
-  flex: 1;
+  display: flex;
   text-align: center;
 }
 
@@ -111,8 +112,10 @@ h5 {
   font-size: 16px;
   padding-right: 20px;
   padding-left: 20px;
-  border-radius: 10px;
-  border: 1px solid blue;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(94, 94, 255);
 }
 .today-date {
   width: 300px;
@@ -158,9 +161,18 @@ h5 {
   color: #007bff;
 }
 
-.journal-from-text {
+.journal-text {
+  margin-bottom: 30px;
+}
+
+.journal-form-text {
   align-items: center;
   text-align: center;
+  background-color: #f9f9f9c4;
+  padding: 90px;
+  border-radius: 60%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 50%;
 }
 .journal-entry {
   margin-top: 10px;
@@ -168,13 +180,13 @@ h5 {
   padding-top: 10px;
   padding-bottom: 20px;
   border-radius: 5%;
-  background: rgb(255, 232, 200, 0.5);
+  background-color: #f9f9f9d5;
   margin-bottom: 30px;
-  border: 3px solid #e4c6ff;
+  border: 1px solid rgb(94, 94, 255);
 }
 
 .journal-photo-btn {
-  margin: 40px;
+  margin: 20px;
 }
 
 .on-your-mind {
@@ -184,13 +196,14 @@ h5 {
   background-color: #e4c6ffd2;
   border-radius: 10px;
   border: 1px solid purple;
+  padding: 5px;
 }
 
-.freeWrite {
+textarea {
   overflow: hidden;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  border-radius: 10%;
 }
 
 .make-journal {
@@ -199,13 +212,6 @@ h5 {
   align-items: center;
 }
 
-.journal-container {
-  background-color: #f9f9f9c4;
-  padding: 90px;
-  border-radius: 60%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 50px;
-}
 /* CHECK INS */
 .card {
   border: 1px solid #ccc;
@@ -409,12 +415,13 @@ py .card.daily-practices-check input[type="checkbox"] {
 }
 
 .make-plan-home {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9d5;
   padding: 40px;
   border-radius: 10%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   align-items: center;
   width: 200px;
+  border: 1px solid rgb(94, 94, 255);
 }
 
 .big-plan-container {
@@ -424,15 +431,13 @@ py .card.daily-practices-check input[type="checkbox"] {
   flex-direction: column;
 }
 .plan-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 50%;
+  text-align: center;
+  background-color: #f9f9f9c4;
+  padding: 90px;
+  border-radius: 60%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 50%;
 }
 
 div.make-plan {
