@@ -26,8 +26,15 @@ class DailyCheckIn(models.Model):
     #int 0 - 100
     diet = models.CharField(max_length=100)
     #list of options
-    exercise = models.CharField(max_length=100)
-    dailyPractices = models.CharField(max_length=100)
+
+    exerciseType = models.CharField(max_length=100)
+    duration = models.IntegerField(default=1)
+    intensity = models.CharField(max_length=100)
+    practices = models.CharField(max_length=100)
+    improvements = models.TextField()
+
+
+
     date = models.DateField()
 
 
