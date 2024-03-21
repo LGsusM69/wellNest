@@ -7,9 +7,9 @@
   <div class="today-date">
     <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
   </div>
-  <div class="journal-question">
+  <!-- <div class="journal-question">
     Daily Question (to be got from API eventually??)
-  </div>
+  </div> -->
   <div class="journal-entry">
     <p class="journal-text">Write about your day...</p>
     <form action="{% url 'journal_create' %}" method="post">
