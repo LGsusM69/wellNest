@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %}
+<h1 class="journal-title">{{ daily_prompt.prompt }}</h1>
 <main class="journal-container">
-  <h1 class="journal-title">{{ daily_prompt.prompt }}</h1>
   <!-- Leaving the action empty makes the form post to the same url used to display it -->
   <form class="journal-form-text" action="" method="POST">
+    {% csrf_token %}
     <div class="make-journal">
       <!-- Django requires the following for security purposes -->
       <input
@@ -23,6 +24,8 @@
               maxlength="3000"
               required
               id="id_freeWrite"
+              rows="15"
+              cols="40"
             >
             </textarea>
           </td>

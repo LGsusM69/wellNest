@@ -12,6 +12,11 @@ body {
   background-size: cover;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .nav-wrapper ul.right {
   display: flex;
   justify-content: flex-end;
@@ -92,12 +97,6 @@ footer.page-footer {
   font-size: 20px;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 h1 {
   color: #ffe8c8;
 }
@@ -113,6 +112,7 @@ h5 {
   padding-right: 20px;
   padding-left: 20px;
   border-radius: 10px;
+  border: 1px solid blue;
 }
 .today-date {
   width: 300px;
@@ -158,11 +158,6 @@ h5 {
   color: #007bff;
 }
 
-div.journal-entry {
-  background: rgb(255, 232, 200, 0.5);
-  margin-bottom: 30px;
-}
-
 .journal-from-text {
   align-items: center;
   text-align: center;
@@ -173,24 +168,31 @@ div.journal-entry {
   padding-top: 10px;
   padding-bottom: 20px;
   border-radius: 5%;
+  background: rgb(255, 232, 200, 0.5);
+  margin-bottom: 30px;
+  border: 3px solid #e4c6ff;
 }
 
 .journal-photo-btn {
-  margin: 10px;
+  margin: 40px;
 }
 
 .on-your-mind {
   align-items: center;
   width: 200px;
   color: #007bff;
-  background-color: #cb94ffd2;
+  background-color: #e4c6ffd2;
   border-radius: 10px;
+  border: 1px solid purple;
 }
 
 .freeWrite {
-  border-radius: 10%;
-  width: 100%;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
+
 .make-journal {
   display: flex;
   flex-direction: column;
@@ -199,15 +201,17 @@ div.journal-entry {
 
 .journal-container {
   background-color: #f9f9f9c4;
-  padding: 40px;
+  padding: 90px;
   border-radius: 60%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 50px;
 }
 /* CHECK INS */
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
+  padding-bottom: 40px;
   margin: 0px 30px 20px 30px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -231,6 +235,7 @@ div.journal-entry {
   );
   background-size: 100%;
   color: red;
+  padding-bottom: 40px;
 }
 
 .mood-select {
@@ -255,6 +260,7 @@ div.journal-entry {
   margin-bottom: 20px;
 
   font-family: Arial, sans-serif;
+  padding-bottom: 40px;
 }
 
 .card.sleep-check h4 {
@@ -411,6 +417,12 @@ py .card.daily-practices-check input[type="checkbox"] {
   width: 200px;
 }
 
+.big-plan-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .plan-container {
   display: flex;
   flex-direction: column;
@@ -419,14 +431,12 @@ py .card.daily-practices-check input[type="checkbox"] {
   height: 100%;
   margin: auto;
   padding: 20px;
+  background-color: white;
+  border-radius: 50%;
 }
 
-.make-plan {
-  background-color: #f9f9f9e0;
-
+div.make-plan {
   padding: 40px;
-  border-radius: 60%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .make-plan h3 {
@@ -442,10 +452,11 @@ py .card.daily-practices-check input[type="checkbox"] {
   border-radius: 5px;
   resize: vertical;
   min-height: 50px;
+  overflow: hidden;
 }
 
 button[type="submit"] {
-  background-color: #007bff;
+  background-color: #d56cff;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -455,9 +466,13 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #b700ff;
 }
 
 .textarea-resize {
   display: grid;
+}
+
+.add-plan-btn {
+  margin-top: 20px;
 }
