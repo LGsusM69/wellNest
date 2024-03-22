@@ -210,6 +210,7 @@ def dailysummaries(request):
             daily_summaries_by_date[date_key] = [daily_summary]
 
     context = {
+        'daily_summaries': daily_summaries,
         'daily_summaries_by_date': daily_summaries_by_date,
     }
     return render(request, 'features/dailysummaries.html', context)
