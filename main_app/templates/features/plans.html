@@ -4,21 +4,29 @@
   <div class="today-date">
     <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
   </div>
-  {% if user_entry %}
+  {% if plans %}
   <div class="plan-made">
-    <p>{{ user_entry.time|time:'g:i A' }} - {{ user_entry.plan }}</p>
+  </div>
+  <form action="{% url 'plans'%}" method="POST">
+    {% csrf_token %}
+    <input type="date" name="date"> <button type="submit" style="font-size : 16px;">GO</button>
+  </form>
+  <div class="make-plan-home">
+    <h3>Plans for:</h3>
+    {% for plan in plans %}
+    <p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
+    
+    
+    {% endfor %}
   </div>
   {% else %}
   <p>No plans yet!</p>
 </div>
-{% endif %}
-<div class="make-plan-home">
-  <h3>Add a Plan</h3>
-  <form class="plan-form" action="{% url 'plan_create' %}" method="GET">
-    {% csrf_token %}
 
-    <button class="add-plan-btn" type="submit">Add Plan</button>
-  </form>
-</div>
+{% endif %}
+<form class="plan-form" action="{% url 'plan_create' %}" method="GET">
+  {% csrf_token %}
+  <button class="add-plan-btn" type="submit">Add Plan</button>
+</form>
 
 {% endblock %}

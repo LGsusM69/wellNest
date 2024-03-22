@@ -134,11 +134,14 @@ def plans(request):
     current_date = date.today()
     print('Today is', current_date)
     if request.user.is_authenticated:
-        user_entry = Plan.objects.filter(user=request.user, date=current_date).first()
+        plans = Plan.objects.filter(user=request.user, date=current_date)
     else:
-        user_entry = None 
-        
-    return render(request, 'features/plans.html', {'current_date': current_date, 'user_entry': user_entry})
+        plans = None
+    request_date = None
+
+    if request.method == "POST":
+        request_date = request.POST.get('date')
+    return render(request, 'features/plans.html', {'current_date': current_date, 'plans': plans})
 
 def plan_create(request):
     current_date = date.today()
