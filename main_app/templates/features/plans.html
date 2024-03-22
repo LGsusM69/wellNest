@@ -6,12 +6,10 @@
   </div>
   <form action="{% url 'plans'%}" method="POST">
     {% csrf_token %}
-    <input type="date" name="date"> <button type="submit" style="font-size : 16px;">GO</button>
+    <input type="date" value="{{current_date|date:'Y-m-d'}}" name="date"> <button type="submit" style="font-size : 16px;">GO</button>
   </form>
   {% if plans %}
-  <div class="plan-made">
-  </div>
-  <div class="make-plan-home">
+  <div class="make-plan-home" id="plan-container">
     <h3>Plans for:</h3>
     {% for plan in plans %}
     <p>{{ plan.time|time:'g:i A' }} - {{ plan.plan }}</p>
