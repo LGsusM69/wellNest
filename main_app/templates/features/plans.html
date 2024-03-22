@@ -4,23 +4,6 @@
   <div class="today-date">
     <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
   </div>
-
-  <div class="make-plan-home">
-    <h3>Add a Plan</h3>
-    <form class="plan-form" action="{% url 'plan_create' %}" method="post">
-      {% csrf_token %}
-      <div class="textarea-resize">
-        <textarea
-          type="text"
-          name="plan"
-          id="add-plan-text"
-          cols="100"
-        ></textarea>
-      </div>
-      <button class="add-plan-btn" type="submit">Add Plan</button>
-    </form>
-  </div>
-  
   {% if user_entry %}
   <div class="plan-made">
     <p>{{ user_entry.time|time:'g:i A' }} - {{ user_entry.plan }}</p>
@@ -28,7 +11,14 @@
   {% else %}
   <p>No plans yet!</p>
 </div>
-{% endif %} 
+{% endif %}
+<div class="make-plan-home">
+  <h3>Add a Plan</h3>
+  <form class="plan-form" action="{% url 'plan_create' %}" method="post">
+    {% csrf_token %}
+
+    <button class="add-plan-btn" type="submit">Add Plan</button>
+  </form>
+</div>
 
 {% endblock %}
-

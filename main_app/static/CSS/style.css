@@ -447,11 +447,15 @@ py .card.daily-practices-check input[type="checkbox"] {
 .plan-container {
   align-items: center;
   text-align: center;
-  background-color: #f9f9f9c4;
-  padding: 90px;
-  border-radius: 60%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
   height: 50%;
+  background-color: #f9f9f9d5;
+  border-radius: 10%;
+  border: 1px solid rgb(94, 94, 255);
+}
+
+.plan-time-input {
+  margin: 5px;
 }
 
 div.make-plan {
