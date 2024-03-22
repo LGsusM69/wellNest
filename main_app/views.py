@@ -126,17 +126,27 @@ def checkin_failed(request):
 
 
 def journal(request):
-    # current_date = date.today()
     current_date = timezone.now().date()
     print('Today is', current_date)
-    user_entry = Journal.objects.filter(user=request.user, date=current_date).first()
+    
+    # Check if user is authenticated before filtering Journal objects
+    if request.user.is_authenticated:
+        user_entry = Journal.objects.filter(user=request.user, date=current_date).first()
+    else:
+        user_entry = None  # Or any other handling for unauthenticated users
+        
     return render(request, 'features/journal.html', {'current_date': current_date, 'user_entry': user_entry})
-
 
 def plans(request):
     current_date = date.today()
     print('Today is', current_date)
-    user_entry = Plan.objects.filter(user=request.user, date=current_date).first()
+    
+    # Check if user is authenticated before filtering Plan objects
+    if request.user.is_authenticated:
+        user_entry = Plan.objects.filter(user=request.user, date=current_date).first()
+    else:
+        user_entry = None  # Or any other handling for unauthenticated users
+        
     return render(request, 'features/plans.html', {'current_date': current_date, 'user_entry': user_entry})
 
 
