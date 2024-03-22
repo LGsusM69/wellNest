@@ -136,7 +136,8 @@ def journal(request):
 def plans(request):
     current_date = date.today()
     print('Today is', current_date)
-    return render(request, 'features/plans.html', {'current_date': current_date})
+    user_entry = Plan.objects.filter(user=request.user, date=current_date).first()
+    return render(request, 'features/plans.html', {'current_date': current_date, 'user_entry': user_entry})
 
 
 
