@@ -52,6 +52,19 @@ class JournalCreate(LoginRequiredMixin, CreateView):
 
 
     
+# class PlanCreate(LoginRequiredMixin, CreateView):
+#     model = Plan
+#     fields = ["plan"]
+#     success_url = '/plans'
+
+#     def form_valid(self, form):
+#         if isinstance(self.request.user, User):
+#             form.instance.user = self.request.user
+#         else:
+#             print("Error: Invalid user instance")
+
+#         return super().form_valid(form)
+
 class PlanCreate(LoginRequiredMixin, CreateView):
     model = Plan
     fields = ["plan"]
@@ -121,6 +134,15 @@ def plans(request):
     current_date = date.today()
     print('Today is', current_date)
     return render(request, 'features/plans.html', {'current_date': current_date})
+
+
+
+
+    # current_date = date.today()
+    # # Get the latest plan entry for the current user
+    # latest_plan = Plan.objects.filter(user=request.user).latest('id')
+    # plans_today = [latest_plan] if latest_plan else []
+    # return render(request, 'features/plans.html', {'current_date': current_date, 'plans': plans_today})
 
 
 def dailysummaries(request):
