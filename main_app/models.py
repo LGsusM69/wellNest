@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User 
 import datetime
-## Add 'user = models.ForeignKey(User, on_delete=models.CASCADE)' to dailysummaries model ##
 
 # Create your models here.
 
@@ -22,7 +21,7 @@ class DailyCheckIn(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mood = models.CharField(max_length=100)
     #list of available moods
-    sleep = models.CharField(max_length=100)
+    sleep = models.IntegerField(default=50)
     #int 0 - 100
     diet = models.TextField(max_length=500)
     #list of options

@@ -17,8 +17,7 @@ from datetime import datetime
 class CheckinCreate(LoginRequiredMixin, CreateView):
     model = DailyCheckIn
     fields = ["mood", "sleep", "diet", "exerciseType", 
-              "duration", "intensity", "practices",
-              "improvements"
+              'practices', 'improvements',
               ]
     success_url = '/checkins'
 
@@ -92,13 +91,15 @@ def checkins(request):
         dietString = ', '.join(dietList)
         form = {
             'mood': request.POST.get('mood'),
-            'sleep': request.POST.get('sleep_rating'),
+            'sleep': request.POST.get('sleep'),
             'diet': dietString,
             'exerciseType': request.POST.get('exerciseType'),
-            'duration': request.POST.get('duration'),
-            'intensity': request.POST.get('intensity'),
-            'practices': request.POST.get('practices'),
-            'improvements': request.POST.get('improvements'),
+            'duration': request.POST.get('hours'),
+            'intensity': request.POST.get('intensity'),  
+            'practices': request.POST.get('practices'),  
+             'improvements': request.POST.get('improvements')
+     
+
         }
         print("form: ")
         print(form)
@@ -112,6 +113,7 @@ def checkins(request):
                 intensity = form['intensity'],
                 practices = form['practices'],
                 improvements = form['improvements'],
+        
                 user = request.user
             )
             return redirect('/checkins')
@@ -126,17 +128,23 @@ def checkin_failed(request):
 
 
 def journal(request):
-    # current_date = date.today()
     current_date = timezone.now().date()
     print('Today is', current_date)
-    user_entry = Journal.objects.filter(user=request.user, date=current_date).first()
+    if request.user.is_authenticated:
+        user_entry = Journal.objects.filter(user=request.user, date=current_date).first()
+    else:
+        user_entry = None 
+        
     return render(request, 'features/journal.html', {'current_date': current_date, 'user_entry': user_entry})
-
 
 def plans(request):
     current_date = date.today()
     print('Today is', current_date)
-    user_entry = Plan.objects.filter(user=request.user, date=current_date).first()
+    if request.user.is_authenticated:
+        user_entry = Plan.objects.filter(user=request.user, date=current_date).first()
+    else:
+        user_entry = None 
+        
     return render(request, 'features/plans.html', {'current_date': current_date, 'user_entry': user_entry})
 
 
