@@ -1,11 +1,9 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="journal-card">
   <div class="journal-title">
     <h1>Journal</h1>
   </div>
-  
+
   <div class="today-date">
     <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
   </div>
@@ -17,31 +15,36 @@
     <p class="journal-text">No journal entry for today.</p>
     {% endif %}
   </div>
-  {% if not user_entry%} 
-    <div class="journal-form">
+  {% if not user_entry%}
+  <div class="journal-form">
     <h2>Add Journal Entry</h2>
-    <form class="journal-form-text" action="{% url 'journal_create' %}" method="POST">
+    <form
+      class="journal-form-text"
+      action="{% url 'journal_create' %}"
+      method="POST"
+    >
       {% csrf_token %}
       <div class="make-journal">
         <h3 class="on-your-mind">What's on your mind?</h3>
         <table class="freeWrite">
-
           <tr>
             <th><label for="id_freeWrite"></label></th>
             <td>
               <ul class="errorlist"></ul>
-              <textarea name="freeWrite" maxlength="3000" required id="id_freeWrite" rows="15" cols="40"></textarea>
+              <textarea
+                name="freeWrite"
+                maxlength="3000"
+                required
+                id="id_freeWrite"
+                rows="15"
+                cols="40"
+              ></textarea>
             </td>
           </tr>
-          
         </table>
-        <label for="id_photo">Photo:</label>
-        <input type="file" id="id_photo" name="photo">  
-        <button class="journal-photo-btn" type="submit">Submit Journal Entry</button>
       </div>
     </form>
-    </div>
+  </div>
   {% endif %}
 </div>
 {% endblock %}
-
