@@ -3,7 +3,7 @@
 wellNest is a comprehensive health and wellness application developed using Python and Django. It offers users a platform to monitor and improve their overall well-being by tracking key metrics such as mood, sleep quality, dietary habits, exercise routines, journal entries, and personal plans.
 
 
-### Key Features
+## Key Features
 
 **Mood Tracking:** Log and analyze daily mood fluctuations to gain insights into emotional well-being.
 **Sleep Monitoring:** Track sleep patterns and quality to improve sleep habits and overall restfulness.
@@ -13,10 +13,10 @@ wellNest is a comprehensive health and wellness application developed using Pyth
 **Personal Plans:** Set and manage personalized wellness plans to achieve health goals effectively.
 
 
-### Screenshots
+## Screenshots
 
 
-### Technologies Used
+## Technologies Used
 Python
 JavaScript
 HTML
@@ -25,10 +25,10 @@ PostgreSQL
 Django
 
 
-### Getting Started
+## Getting Started
 heroku: 
 trello baord: https://trello.com/b/nWMKG5Qd/wellnest
 
 
-### Next Steps
+## Next Steps
 
