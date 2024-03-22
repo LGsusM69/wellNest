@@ -134,6 +134,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "main_app/static",
+    BASE_DIR / "main_app/fonts",
 ]
 
 # Default primary key field type
