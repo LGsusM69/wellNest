@@ -551,3 +551,12 @@ button[type="submit"]:hover {
   text-align: left;
   
 }
+
+#plan-container {
+  max-height: 350px;
+  overflow:auto
+}
+
+.plan-title {
+  margin: 0;
+}
