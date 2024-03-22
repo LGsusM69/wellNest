@@ -8,8 +8,7 @@ import datetime
 class Journal(models.Model):
     freeWrite = models.TextField(max_length=1000)
     date = models.DateField(default=datetime.date.today)
-    photo = models.ImageField(upload_to='journal_photos/', blank=True, null=True)  # New field for photos by murs
-
+    photo = models.ImageField(upload_to='photos/', blank=True, null=True)  # New field for photos by murs
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -62,6 +61,7 @@ class Photo(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='photos/')
     description = models.TextField(blank=True)
+    journal = models
 
     def __str__(self):
         return self.description  # customize this as needed.....

@@ -28,7 +28,7 @@ class CheckinCreate(LoginRequiredMixin, CreateView):
 
 class JournalCreate(LoginRequiredMixin, CreateView):
     model = Journal
-    fields = ["freeWrite"]
+    fields = ["freeWrite", "photo"]
     success_url = '/journal'
 
     def form_valid(self, form):
@@ -85,10 +85,15 @@ def checkins(request):
     current_date = date.today()
     print('Today is', current_date)
 
+    existing_checkin = DailyCheckIn.objects.filter(user=request.user, date=current_date).first()
+
     if request.method == "POST":
 
         dietList = request.POST.getlist('diet')
         dietString = ', '.join(dietList)
+
+        practicesList = request.POST.getlist('practices')
+        practicesString = ', '.join(practicesList)
         form = {
             'mood': request.POST.get('mood'),
             'sleep': request.POST.get('sleep'),
@@ -96,7 +101,7 @@ def checkins(request):
             'exerciseType': request.POST.get('exerciseType'),
             'duration': request.POST.get('hours'),
             'intensity': request.POST.get('intensity'),  
-            'practices': request.POST.get('practices'),  
+            'practices': practicesString,  
              'improvements': request.POST.get('improvements')
      
 
@@ -104,19 +109,41 @@ def checkins(request):
         print("form: ")
         print(form)
         if all(form.values()):
-            DailyCheckIn.objects.create(
-                mood = form['mood'],
-                sleep = form['sleep'],
-                diet = form['diet'],
-                exerciseType = form['exerciseType'],
-                duration = form['duration'],
-                intensity = form['intensity'],
-                practices = form['practices'],
-                improvements = form['improvements'],
-        
-                user = request.user
-            )
-            return redirect('/checkins')
+
+            if existing_checkin:
+                #update
+                existing_checkin.mood = form['mood']
+                existing_checkin.sleep = form['sleep']
+                existing_checkin.diet = form['diet']
+                existing_checkin.exerciseType = form['exerciseType']
+                existing_checkin.duration = form['duration']
+                existing_checkin.intensity = form['intensity']
+                existing_checkin.practices = form['practices']
+                existing_checkin.improvements = form['improvements']
+                try:
+                    existing_checkin.save()
+
+                except:
+                    print('failed')
+                return redirect('/checkins')
+            
+            else:
+                DailyCheckIn.objects.create(
+                    mood = form['mood'],
+                    sleep = form['sleep'],
+                    diet = form['diet'],
+                    exerciseType = form['exerciseType'],
+                    duration = form['duration'],
+                    intensity = form['intensity'],
+                    practices = form['practices'],
+                    improvements = form['improvements'],
+            
+                    user = request.user
+                )
+                return redirect('/checkins')
+
+
+                #lo mismo
         else:
             form = {}
         return redirect('/checkins/failed')
