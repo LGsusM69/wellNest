@@ -73,10 +73,13 @@ def checkins(request):
     print('Today is', current_date)
 
     if request.method == "POST":
+
+        dietList = request.POST.getlist('diet')
+        dietString = ', '.join(dietList)
         form = {
             'mood': request.POST.get('mood'),
             'sleep': request.POST.get('sleep_rating'),
-            'diet': request.POST.get('diet'),
+            'diet': dietString,
             'exerciseType': request.POST.get('exerciseType'),
             'duration': request.POST.get('duration'),
             'intensity': request.POST.get('intensity'),
