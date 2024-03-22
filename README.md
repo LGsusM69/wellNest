@@ -17,18 +17,20 @@ wellNest is a comprehensive health and wellness application developed using Pyth
 
 
 ## Technologies Used
-Python
-JavaScript
-HTML
-CSS
-PostgreSQL
-Django
+- Python
+- JavaScript
+- HTML
+- CSS
+- PostgreSQL
+- Django
 
 
 ## Getting Started
-heroku: 
-trello baord: https://trello.com/b/nWMKG5Qd/wellnest
+- heroku: 
+- trello baord: https://trello.com/b/nWMKG5Qd/wellnest
 
 
 ## Next Steps
-
+- 
+-
+- 
