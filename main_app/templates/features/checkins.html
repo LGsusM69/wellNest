@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1 class="checkin">Check In</h1>
-<div class="checkin-date" >
+<div class="checkin-date">
   <h5>Today is {{ current_date|date:'l, M jS' }}</h5>
 </div>
 <div class="all-checkins">
@@ -10,45 +10,44 @@
     <div class="card mood-check">
       <h4>Mood Check In</h4>
       <p>Select your mood:</p>
-        <fieldset class="mood-select" id="mood" name="mood">
-          <div>
-            <input type="radio" id="happy" name="mood" value="Happy" />
-            <label for="happy">Happy</label><br />
-          </div>
-          <div>
-            <input type="radio" id="sad" name="mood" value="Sad" />
-            <label for="sad">Sad</label><br />
-          </div>
-          <div>
-            <input type="radio" id="angry" name="mood" value="Angry" />
-            <label for="angry">Angry</label><br />
-          </div>
-          <div>
-            <input type="radio" id="anxious" name="mood" value="Anxious" />
-            <label for="anxious">Anxious</label><br />
-          </div>
-          <div>
-            <input type="radio" id="excited" name="mood" value="Excited" />
-            <label for="excited">Excited</label><br />
-          </div>
-          <div>
-            <input type="radio" id="stressed" name="mood" value="stressed" />
-            <label for="stressed">Stressed</label><br />
-          </div>
-          <div>
-            <input type="radio" id="content" name="mood" value="Content" />
-            <label for="content">Content</label><br />
-          </div>
-          <div>
-            <input type="radio" id="frustrated" name="mood" value="Frustrated" />
-            <label for="frustrated">Frustrated</label><br />
-          </div>
-          <div>
-            <input type="radio" id="relaxed" name="mood" value="Relaxed" />
-            <label for="relaxed">Relaxed</label><br />
-          </div>
-        </fieldset>
-
+      <fieldset class="mood-select" id="mood" name="mood">
+        <div>
+          <input type="radio" id="happy" name="mood" value="Happy" />
+          <label for="happy">Happy</label><br />
+        </div>
+        <div>
+          <input type="radio" id="sad" name="mood" value="Sad" />
+          <label for="sad">Sad</label><br />
+        </div>
+        <div>
+          <input type="radio" id="angry" name="mood" value="Angry" />
+          <label for="angry">Angry</label><br />
+        </div>
+        <div>
+          <input type="radio" id="anxious" name="mood" value="Anxious" />
+          <label for="anxious">Anxious</label><br />
+        </div>
+        <div>
+          <input type="radio" id="excited" name="mood" value="Excited" />
+          <label for="excited">Excited</label><br />
+        </div>
+        <div>
+          <input type="radio" id="stressed" name="mood" value="stressed" />
+          <label for="stressed">Stressed</label><br />
+        </div>
+        <div>
+          <input type="radio" id="content" name="mood" value="Content" />
+          <label for="content">Content</label><br />
+        </div>
+        <div>
+          <input type="radio" id="frustrated" name="mood" value="Frustrated" />
+          <label for="frustrated">Frustrated</label><br />
+        </div>
+        <div>
+          <input type="radio" id="relaxed" name="mood" value="Relaxed" />
+          <label for="relaxed">Relaxed</label><br />
+        </div>
+      </fieldset>
     </div>
 
     <div class="card sleep-check">
@@ -69,15 +68,10 @@
     </div>
 
     <div class="card eating-check">
-      <h4>Eating Check In</h4>
+      <h4 class="eat-title">Eating Check In</h4>
 
-      <p>Select all that apply:</p>
-      <input
-        type="checkbox"
-        id="breakfast"
-        name="diet"
-        value="breakfast"
-      />
+      <p class="eat-title">Select all that apply:</p>
+      <input type="checkbox" id="breakfast" name="diet" value="breakfast" />
       <label for="breakfast">Did I eat breakfast today?</label><br />
 
       <input
@@ -155,12 +149,7 @@
         >Did I practice portion control during meals?</label
       ><br />
 
-      <input
-        type="checkbox"
-        id="skip_meals"
-        name="diet"
-        value="skip_meals"
-      />
+      <input type="checkbox" id="skip_meals" name="diet" value="skip_meals" />
       <label for="skip_meals"
         >Did I resist the temptation to skip meals today?</label
       >
@@ -173,12 +162,7 @@
       <p>Type of exercise:</p>
       <input type="text" name="exerciseType" id="exercise-type" value="" />
       <p>Duration:</p>
-      <input
-        type="text"
-        name="duration"
-        id="exercise-duration"
-        value=""
-      />
+      <input type="text" name="duration" id="exercise-duration" value="" />
       <p>Intensity:</p>
       <fieldset id="intensity" name="intensity">
         <input type="radio" name="intensity" id="low-int" value="low-int" />
