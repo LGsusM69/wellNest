@@ -8,23 +8,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User  
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from datetime import datetime
+from datetime import datetime, time
 
 
 
 # Create your views here.
-
-class CheckinCreate(LoginRequiredMixin, CreateView):
-    model = DailyCheckIn
-    fields = ["mood", "sleep", "diet", "exerciseType", 
-              'practices', 'improvements',
-              ]
-    success_url = '/checkins'
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
 
 class JournalCreate(LoginRequiredMixin, CreateView):
     model = Journal
@@ -50,32 +38,10 @@ class JournalCreate(LoginRequiredMixin, CreateView):
         return context
 
 
-    
-# class PlanCreate(LoginRequiredMixin, CreateView):
-#     model = Plan
-#     fields = ["plan"]
-#     success_url = '/plans'
-
-#     def form_valid(self, form):
-#         if isinstance(self.request.user, User):
-#             form.instance.user = self.request.user
-#         else:
-#             print("Error: Invalid user instance")
-
-#         return super().form_valid(form)
-
-class PlanCreate(LoginRequiredMixin, CreateView):
-    model = Plan
-    fields = ["plan"]
-    success_url = '/plans'
-
-    def form_valid(self, form):
-        if isinstance(self.request.user, User):
-            form.instance.user = self.request.user
-        else:
-            print("Error: Invalid user instance")
-
-        return super().form_valid(form)
+#class PlanCreate(LoginRequiredMixin, CreateView):
+    #model = Plan
+    #fields = ["plan"]
+    #success_url = '/plans'
 
 
 def home(request):
@@ -174,15 +140,61 @@ def plans(request):
         
     return render(request, 'features/plans.html', {'current_date': current_date, 'user_entry': user_entry})
 
+def plan_create(request):
+    current_date = date.today()
+    print('Today is', current_date)
 
+    if request.method == "POST":
 
+        print('method is POST')
+        #print(request.POST.date, request.POST.plan)
+        print(request.POST.getlist('plan'))
 
-    # current_date = date.today()
-    # # Get the latest plan entry for the current user
-    # latest_plan = Plan.objects.filter(user=request.user).latest('id')
-    # plans_today = [latest_plan] if latest_plan else []
-    # return render(request, 'features/plans.html', {'current_date': current_date, 'plans': plans_today})
+        req_planList = request.POST.getlist('plan')
+        req_date = request.POST.get('date')
+        timeList = ['06:00', '06:30', '07:00', '07:30',
+                    '08:00', '08:30', '09:00', '09:30',
+                    '10:00', '10:30', '11:00', '11:30',
+                    '12:00', '12:30', '13:00', '13:30',
+                    '14:00', '14:30', '15:00', '15:30',
+                    '16:00', '16:30', '17:00', '17:30',
+                    '18:00', '18:30', '19:00', '19:30',
+                    '20:00', '20:30', '21:00', '21:30',
+                    '22:00', '22:30']
+        user = request.user
+        user_id = request.user.id
+        print('id: ')
+        print(request.user.id)
 
+        for index in range(0, 34):
+            print('cangrejo')    
+
+            timeString = timeList[index]
+            hour, minute = map(int, timeString.split(':'))
+            timeVar = time(hour=hour, minute=minute)   
+            # Skip empty plans
+            if req_planList[index] == "":
+                print(index)
+                continue
+            
+            # Check if a plan already exists for the given date and time
+            existing_plan = Plan.objects.filter(date=req_date, time = timeVar).first()
+            if existing_plan:
+                # Update existing plan
+                existing_plan.plan = req_planList[index]
+                existing_plan.save()
+            else:
+                # Create new plan
+
+                Plan.objects.create(plan = req_planList[index], date = req_date, time = timeVar, user_id=user_id)
+            
+            # Repeat the process for half-hour plans
+        
+        # Redirect to a success URL or return a response
+        return redirect('/plans')  # Adjust this to your success URL
+        
+
+    return render(request, 'main_app/plan_form.html', {'current_date': current_date})
 
 def dailysummaries(request):
     daily_summaries = DailySummary.objects.all()

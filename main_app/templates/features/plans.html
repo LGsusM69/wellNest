@@ -14,7 +14,7 @@
 {% endif %}
 <div class="make-plan-home">
   <h3>Add a Plan</h3>
-  <form class="plan-form" action="{% url 'plan_create' %}" method="post">
+  <form class="plan-form" action="{% url 'plan_create' %}" method="GET">
     {% csrf_token %}
 
     <button class="add-plan-btn" type="submit">Add Plan</button>

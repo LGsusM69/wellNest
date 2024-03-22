@@ -7,8 +7,10 @@
     <div class="make-plan">
       <p>No plans yet!</p>
       <h3>Add a Plan</h3>
-      <form class="plan-form" action="/plans/create/" method="post">
+      <form class="plan-form" action="{% url 'plan_create' %}" method="post">
         {% csrf_token %}
+        <label for="date">Plan for:</label>
+        <input type="date" id="date" name="date">
 
         <!-- Container for time inputs -->
         <div id="time-inputs"></div>
@@ -56,6 +58,7 @@
           timeInputsContainer.appendChild(document.createElement("br"));
         }
       </script>
+
     </div>
   </main>
 </div>

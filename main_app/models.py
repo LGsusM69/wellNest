@@ -39,6 +39,7 @@ class DailyCheckIn(models.Model):
 class Plan(models.Model):
     plan = models.CharField(max_length=100)
     date = models.DateField(default=datetime.date.today)
+    time = models.TimeField(default=datetime.time(0, 0))
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
