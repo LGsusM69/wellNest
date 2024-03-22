@@ -17,8 +17,8 @@
     <p class="journal-text">No journal entry for today.</p>
     {% endif %}
   </div>
-
-  <div class="journal-form">
+  {% if not user_entry%} 
+    <div class="journal-form">
     <h2>Add Journal Entry</h2>
     <form class="journal-form-text" action="{% url 'journal_create' %}" method="POST">
       {% csrf_token %}
@@ -38,7 +38,8 @@
         <button class="journal-photo-btn" type="submit">Submit Journal Entry</button>
       </div>
     </form>
-  </div>
+    </div>
+  {% endif %}
 </div>
 {% endblock %}
 
