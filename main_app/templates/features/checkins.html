@@ -162,7 +162,19 @@
       <p>Type of exercise:</p>
       <input type="text" name="exerciseType" id="exercise-type" value="" />
       <p>Duration:</p>
-      <input type="text" name="duration" id="exercise-duration" value="" />
+      <select class="exercise-time" name="hours" id="exercise-duration">
+        <option value="0">0</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+      </select>
+      :
+      <select class="exercise-time" name="minutes" id="selectMinutes"></select>
       <p>Intensity:</p>
       <fieldset id="intensity" name="intensity">
         <input type="radio" name="intensity" id="low-int" value="low-int" />
@@ -238,4 +250,15 @@
     <button type="submit">Submit Check-In</button>
   </form>
 </div>
+
+<script>
+  var selectElement = document.getElementById("selectMinutes");
+  for (var i = 1; i <= 60; i++) {
+    var option = document.createElement("option");
+    var value = i < 10 ? "0" + i : i;
+    option.value = value;
+    option.textContent = value;
+    selectElement.appendChild(option);
+  }
+</script>
 {% endblock %}

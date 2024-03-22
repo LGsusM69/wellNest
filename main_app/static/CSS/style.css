@@ -300,7 +300,7 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   position: relative;
   top: -4px;
-  left: calc(50% - 10px);
+  transform: translateX(-50%);
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -310,23 +310,20 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 3px;
 }
 
-.slider-container {
-  position: relative;
-}
-
-.label-left,
-.label-right {
-  position: absolute;
-  bottom: -20px;
-  color: white;
-}
-
 .label-left {
+  position: absolute;
+  bottom: 350px;
+  color: white;
+  right: calc(50% + 300px);
   left: 0;
   color: black;
 }
 
 .label-right {
+  position: absolute;
+  bottom: 350px;
+  color: white;
+  left: calc(50% + 300px);
   right: 0;
 }
 
@@ -374,6 +371,10 @@ input[type="checkbox"] + label:hover {
   padding: 20px;
   margin-bottom: 20px;
   font-family: Arial, sans-serif;
+}
+
+select {
+  width: 100px;
 }
 
 .card.exercise-check h4 {

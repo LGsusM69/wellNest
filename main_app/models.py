@@ -24,7 +24,7 @@ class DailyCheckIn(models.Model):
     #list of available moods
     sleep = models.CharField(max_length=100)
     #int 0 - 100
-    diet = models.CharField(max_length=100)
+    diet = models.TextField(max_length=500)
     #list of options
 
     exerciseType = models.CharField(max_length=100)
