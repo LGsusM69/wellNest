@@ -24,9 +24,27 @@
           <ul class="right">
             <li><a href="/" class="home-link">Home</a></li>
             {% if user.is_authenticated %}
-            <li>
-              <a href="{% url 'logout' %}" class="logout-link">Log Out</a>
-            </li>
+            <form
+              action="{% url 'logout' %}"
+              class="logout-link"
+              method="post"
+              style="margin-top: -40px"
+            >
+              {% csrf_token %}
+              <button
+                style="
+                  background: none;
+                  color: #ffe8c8;
+                  margin-right: 15px;
+                  text-decoration: none;
+                  font-size: 25px;
+                "
+                type="submit"
+              >
+                Log out
+              </button>
+            </form>
+
             {% else %}
             <li><a href="{% url 'login' %}" class="login-link">Log In</a></li>
             {% endif %}
