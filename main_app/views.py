@@ -203,16 +203,12 @@ def plan_create(request):
     return render(request, 'main_app/plan_form.html', {'current_date': current_date})
 
 def dailysummaries(request):
-    # Get all DailyCheckIn instances
     daily_check_ins = DailyCheckIn.objects.all()
     
-    # Process each DailyCheckIn instance and create corresponding DailySummary instances
     for check_in in daily_check_ins:
-        # Check if a DailySummary already exists for the current date
         existing_summary = DailySummary.objects.filter(user=check_in.user, date=check_in.date).first()
         
         if not existing_summary:
-            # Create a new DailySummary instance based on the DailyCheckIn data
             DailySummary.objects.create(
                 user=check_in.user,
                 date=check_in.date,
@@ -220,13 +216,11 @@ def dailysummaries(request):
                 sleep_check=check_in.sleep,
                 eating_check=check_in.diet,
                 exercise_check=check_in.exerciseType,
-                # Add other fields as needed
+                journal_entry=Journal.objects.filter(user=check_in.user, date=check_in.date).first().freeWrite
             )
 
-    # Retrieve all DailySummary instances
     daily_summaries = DailySummary.objects.all()
     
-    # Group DailySummary instances by date
     daily_summaries_by_date = {}
     for daily_summary in daily_summaries:
         date_key = daily_summary.date.strftime('%B %d, %Y')
