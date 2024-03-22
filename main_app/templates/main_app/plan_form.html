@@ -31,7 +31,7 @@
           // Create input field for each hour
           var hourInput = document.createElement("input");
           hourInput.type = "text";
-          hourInput.name = "plan_" + hourText + "_00";
+          hourInput.name = "plan";
           hourInput.placeholder = "Enter your plan for " + hourText + ":00";
           timeInputsContainer.appendChild(hourInput);
 
@@ -46,7 +46,7 @@
           // Create input field for each half-hour
           var halfHourInput = document.createElement("input");
           halfHourInput.type = "text";
-          halfHourInput.name = "plan_" + hourText + "_30";
+          halfHourInput.name = "plan";
           halfHourInput.placeholder = "Enter your plan for " + hourText + ":30";
           timeInputsContainer.appendChild(halfHourInput);
 
