@@ -26,7 +26,7 @@ wellNest is a comprehensive health and wellness application developed using Pyth
 
 
 ## Getting Started
-- heroku: 
+- heroku: https://wellnest1-ef057f42bae7.herokuapp.com/
 - trello baord: https://trello.com/b/nWMKG5Qd/wellnest
 
 
