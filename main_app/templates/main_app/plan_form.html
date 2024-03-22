@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 
-
 <div class="big-plan-container">
   <h1>Add Plan</h1>
 
@@ -11,48 +10,52 @@
       <form class="plan-form" action="/plans/create/" method="post">
         {% csrf_token %}
 
-        <div class="textarea-resize">
-          <textarea
-            type="text"
-            name=""
-            id="add-plan-text"
-            cols="100"
-          ></textarea>
-        </div>
+        <!-- Container for time inputs -->
+        <div id="time-inputs"></div>
+
         <button class="add-plan-btn" type="submit">Add Plan</button>
       </form>
+
+      <script>
+        var timeInputsContainer = document.getElementById("time-inputs");
+
+        // Loop to generate input fields for each hour and half-hour from 6am to 10pm
+        for (var hour = 6; hour <= 22; hour++) {
+          var hourText = hour < 10 ? "0" + hour : hour; // Format hour
+
+          // Create label for the hour
+          var hourLabel = document.createElement("label");
+          hourLabel.textContent = hourText + ":00"; // Display hour
+          timeInputsContainer.appendChild(hourLabel);
+
+          // Create input field for each hour
+          var hourInput = document.createElement("input");
+          hourInput.type = "text";
+          hourInput.name = "plan";
+          hourInput.placeholder = "Enter your plan for " + hourText + ":00";
+          timeInputsContainer.appendChild(hourInput);
+
+          // Add a line break for spacing
+          timeInputsContainer.appendChild(document.createElement("br"));
+
+          // Create label for the half-hour
+          var halfHourLabel = document.createElement("label");
+          halfHourLabel.textContent = hourText + ":30"; // Display half-hour
+          timeInputsContainer.appendChild(halfHourLabel);
+
+          // Create input field for each half-hour
+          var halfHourInput = document.createElement("input");
+          halfHourInput.type = "text";
+          halfHourInput.name = "plan";
+          halfHourInput.placeholder = "Enter your plan for " + hourText + ":30";
+          timeInputsContainer.appendChild(halfHourInput);
+
+          // Add a line break for spacing
+          timeInputsContainer.appendChild(document.createElement("br"));
+        }
+      </script>
     </div>
   </main>
 </div>
-
-
-<script>
-  var autoExpand = function (field) {
-    // Reset field height
-    field.style.height = "inherit";
-
-    // Get the computed styles for the element
-    var computed = window.getComputedStyle(field);
-
-    // Calculate the height
-    var height =
-      parseInt(computed.getPropertyValue("border-top-width"), 10) +
-      parseInt(computed.getPropertyValue("padding-top"), 10) +
-      field.scrollHeight +
-      parseInt(computed.getPropertyValue("padding-bottom"), 10) +
-      parseInt(computed.getPropertyValue("border-bottom-width"), 10);
-
-    field.style.height = height + "px";
-  };
-
-  document.addEventListener(
-    "input",
-    function (event) {
-      if (event.target.tagName.toLowerCase() !== "textarea") return;
-      autoExpand(event.target);
-    },
-    false
-  );
-</script>
 
 {% endblock %}
